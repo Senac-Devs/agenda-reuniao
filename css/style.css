@@ -8,12 +8,9 @@ url{
     margin: 0;
     padding: 0;
 }
-ul li a{
-    text-decoration: none;
-}
 
 header{
-    background-color: hsl(0, 81%, 63%);
+    background-color: hsl(0, 64%, 57%);
     height: 100%;
     display: flex;
     align-items: center;
@@ -26,20 +23,23 @@ header .list-items{
     width: 100%;
     justify-content: space-between;
     align-items: center;
-
+    
+    
 }
 .agendar{
     text-align: center;
     line-height: 2.5;
 }
 
-
 .list-items li a{
     color: #fff;
+    text-decoration: none
 }
+
 
 header .menu{
     justify-content: space-between;
+        
 }
 
 .container{
@@ -56,18 +56,14 @@ header .menu{
     flex-direction: row-reverse;
 }
 
-
-
-
-
-footer{
-    background-color: hsl(0, 81%, 63%);
+footer{    
+    background-color: hsl(0, 64%, 57%);
     position: absolute;
     bottom: 0;
+    width: 100%;
 }
 
 footer .footer{
-    justify-content: space-between; 
     color: #fff; 
 
 }
