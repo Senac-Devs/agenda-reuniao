@@ -1,60 +1,55 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>It'll happen</title>
     <link rel="stylesheet" href="../css/style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@1,300&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-</head>
-
- <header>
+    <header>
         <div class="container menu">
-            <div><h1>It'll happen!!</h1></div>
+            <div>
+                <h1>It'll happen!!</h1>
+            </div>
             <ul class="list-items">
                 <div><a href="../index.html" class="fa fa-home"> Home</a></div>
-                <div><i class="fa fa-calendar" > Pre-Agenda</i></div>
+                <div><i class="fa fa-calendar"> Pre-Agenda</i></div>
             </ul>
         </div>
 
     </header>
     <div class="agendar">
         <h1>Vai acontecer!!</h1>
-
         <img src="../img/age3.jpeg" alt="Pre-agendamento">
-        
-        <form>
-        <p>Escola o tipo de evento:
-            <select name="eventosocial">
-                <option value="null"></option>
-                 <option value="esc"> Casamento</option>
-                 <option value="esn"> Noivado</option>
-                 <option value="esa"> Aniversario</option>
-                 <option value="esc"> Happy hours</option>
-                 <option value="esc"> Churrasco</option>
-                 <option value="esf"> Formatura</option>
-            </select>
-        </p>
-        
-    </form>
-        <form>
-            Agendar <input type="datetime-local" name="bdaytime">
-            
-        </form>    
-        <form>
-            Descricao: <input type="text" name="text" placeholder="descricao do evento">
-        </form>
+
+        <form id="agendaTest">
+            <fieldset id="entradaDados">
+              <legend>Cadastro de Participantes</legend>
+              <label for="nome">Nome :</label>
+              <input type="text" id="nome" name="nome">
+      
+              <label for="email">e-mail :</label>
+              <input type="text" id="email" name="email">
+      
+              <label for="telefone">Telefone :</label>
+              <input type="text" id="telefone" name="telefone">
+      
+              <button type="submit">Salvar Dados</button>
+      
+            </fieldset>
+      
+          </form>
+
+          
     </div>
 
 
     <footer>
         <div class="container footer">
-            <p>Todos os direitos reservados &copy;2022 Senac School Project - HTML, CSS, Javascripts: github.com/Senac-Devs</p>
-           </div>    
+            <p>Todos os direitos reservados &copy;2022 Senac School Project - HTML, CSS, Javascripts:
+                github.com/Senac-Devs</p>
+        </div>
     </footer>
+    </body>
 
-</body>
 </html>
