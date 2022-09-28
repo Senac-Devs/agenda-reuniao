@@ -8,3 +8,4 @@ function geraStringAleatoria(tamanho) {
     }
     return stringAleatoria;
 }
+        
