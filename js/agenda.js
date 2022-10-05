@@ -18,7 +18,7 @@ function newAgenda(participante, calendario) {
     let updates = {};
     updates['/agenda/' + agenda_id] = agenda_data;
 
-    let agenda_ref = firebase.database().ref();
+    let agenda_ref = firebase.database().ref();g
 
     agenda_ref.update(updates)
         .then(function () {

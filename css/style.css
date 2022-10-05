@@ -38,6 +38,33 @@ header {
     min-width: 320px;
 }
 
+.visualiza-semana {
+    display: grid;
+    grid: 1fr / repeat(8, 1px);
+    grid-column-gap: 80px;
+    margin: 30px;
+}
+
+.dia-semana {
+    display: flex;
+    grid-row-gap: 0px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.info {
+    padding: 10px;
+}
+
+.periodo {
+    margin: 8px;
+    border-style: solid;
+    border-color: hsl(0, 64%, 57%);
+    background-color: white;
+}
+
 .registrar {
     background-color: hsl(0, 64%, 57%);
     color: #fff;
