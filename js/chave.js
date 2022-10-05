@@ -1,3 +1,6 @@
+var tamanho = 6
+var codigo = ""
+
 function geraStringAleatoria(tamanho) {
     let stringAleatoria = "";
     let caracteres = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
@@ -6,6 +9,6 @@ function geraStringAleatoria(tamanho) {
             Math.floor(Math.random() * caracteres.length)
         );
     }
-    return stringAleatoria;
+    codigo = stringAleatoria
+    document.getElementById("chave").innerText = `${codigo}`;
 }
-        
