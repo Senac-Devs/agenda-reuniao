@@ -6,49 +6,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>It'll happen</title>
     <link rel="stylesheet" href="./css/style.css">
+    <script src="./js/index.js"></script>
 </head>
-
 <header>
     <div class="container menu">
         <div>
             <h1>It'll happen!!</h1>
         </div>
-        <ul class="list-items">
-            <li><i class="fa fa-home"> Home</i></li>
-            <li><a href="./html/preagenda.html" i class="fa fa-calendar"> Pre-Agenda</a></i></li>
-        </ul>
-    </div>
-
 </header>
 <div class="agendar">
     <h1>Vai acontecer!!</h1>
 </div>
-
 <div class="container">
     <div class="container sobre" id="sobre">
         <div>
-            <h2>Sobre o sistema.</h2>
-            <p>It is a long established fact that a reader will be distracted by the readable content of a page when
-                looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution
-                of letters, as opposed to using 'Content here, content here', making it look like readable English.</p>
-        </div>
-        <div>
             <img src="./img/agetop.jpeg" alt="Pre-agendamento">
         </div>
+        <div>
+            <h2>Sobre o sistema.</h2>
+            <br>
+            <p>Para iniciar o sistema você deve gerar uma chave para centralizar todas as informações.</p>
+            <p>Assim que você clicar em gerar chave será redirecionado para tela de Pré-evento.</p>
+            <p>Na tela de Pré-evento informar os detalhes como: <br>
+                - Detalhes do evento; <br>
+                - Local do evento; <br>
+                - Opções de data e horário.<br>
+            </p>
+            <br>
+            <p>Com os os dados preenchidos basta enviar a mesma  chave para seus convidados e todos poderão confirmar
+                em qual data e horário encaixara na agenda do evento e/ou participantes.
+            </p>
+        </div>
+    </div>
+    <br>
+    <div>
+        <button type="button" class="registrar" onclick="registrarEvent()"> Gerar Chave </button>
     </div>
 </div>
-
-
-
 <footer>
     <div class="container footer">
         <p>Todos os direitos reservados &copy;2022 Senac School Project - HTML, CSS, Javascripts: github.com/Senac-Devs
         </p>
     </div>
 </footer>
-
-
-
 </body>
 
 </html>
