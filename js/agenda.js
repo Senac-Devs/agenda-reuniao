@@ -1,12 +1,61 @@
+
+function registrarEvent() {
+    window.location.href = "./html/preagenda.html"
+}
+
+function mudarTelaEvento() {
+    window.location.href = "./evento.html"
+}
+
+
+var calendario = []
+
+function inserirData() {
+
+    let dInicial = document.getElementById("dataInicial").value;
+    let dFinal = document.getElementById("dataFinal").value;
+
+    if (dFinal == "" || dInicial == "") {
+        alert('Por favor, inserir a data inicial e final!')
+    } else if (dFinal < dInicial) {
+        alert('Por favor, corrigir a data final!')
+    } else {
+        let data1 = new Date(dInicial);
+        data1.setHours(data1.getHours() + 3);
+
+        let data2 = new Date(dFinal);
+        data2.setHours(data2.getHours() + 3);
+
+        let diferencaHora = Math.abs(data2.getTime() - data1.getTime());
+        let diferencaDias = Math.ceil(diferencaHora / (1000 * 3600 * 24));
+        document.getElementById("intervalo").innerHTML = (diferencaDias)
+
+
+
+    }
+
+}
+
+
 const agendaDatabase = {};
 
 let agenda_id = false;
 
+
 function newAgenda(participante, calendario) {
-  const agenda_data = {
-        chave: document.getElementById("chave").textContent,
+    const agenda_data = {
         participante: participante,
         calendario: calendario,
+        chave: document.getElementById("chave").textContent,
+        dataInicial: document.getElementById("dataInicial").value,
+        dataFinal: document.getElementById("dataFinal").value,
+        intervalo: document.getElementById("intervalo").textContent,
+        detalhesEvento: document.getElementById("detalhesEvento").value,
+        local: document.getElementById("local").value,
+        tempoEstimado: document.getElementById("tempoEstimado").value,
+        nome: document.getElementById("nome").value,
+        email: document.getElementById("email").value,
+        telefone: document.getElementById("telefone").value,
         agendaover: false,
         createdat: firebase.database.ServerValue.TIMESTAMP,
     };
@@ -18,7 +67,7 @@ function newAgenda(participante, calendario) {
     let updates = {};
     updates['/agenda/' + agenda_id] = agenda_data;
 
-    let agenda_ref = firebase.database().ref();g
+    let agenda_ref = firebase.database().ref();
 
     agenda_ref.update(updates)
         .then(function () {
@@ -27,7 +76,7 @@ function newAgenda(participante, calendario) {
         .catch(function (error) {
             return { success: false, message: 'Falha na criação: ${error.message}' };
         });
- 
+
 }
 function removeAgenda() {
     if (!agenda_id) return { success: false, message: 'Agenda invalida' };
@@ -43,58 +92,55 @@ function removeAgenda() {
         });
 }
 
-function updateAgenda(calendario) {
-    if (!agenda_id) return { success: false, message: 'Agenda invalida' };
 
-    let agenda_ref = firebase.database().ref('/agenda/' + agenda_id);
-
-    let updates = {};
-    updates['/calendario'] = calendario;
-    updates['/lastupdate'] = firebase.database.ServerValue.TIMESTAMP;
-
-    agenda_ref.update(updates)
-        .then(function () {
-            return { success: true, message: 'Agenda atualizada' };
-        })
-        .catch(function (error) {
-            return { success: false, message: 'Falha na atualização da agenda: ${error.message}' };
-        });
-}
-
-function resetAgenda() {
-    if (!agenda_id) return { success: false, message: 'Agenda invalida' };
-
-    agenda_id = false;
-    return { success: true, message: 'Agenda redefinida' };
-
-}
-
-async function listenAgenda() {
-    if (!agenda_id) return { success: false, message: 'Agenda invalida' };
-
-    let agenda_ref = firebase.database().ref('/agenda/' + agenda_id);
-
-    agenda_ref.once('child_changed')
-        .then(function (snapshot) {
-
-            if (snapshot.key == 'calendario') {
-                console.log('calendario change', snapshot.val());
-                return { success: true, message: 'calendario update', data: snapshot.val() };
-            } else if (snapshot.key == 'agendaover') {
-                console.log('agenda over', snapshot.val());
-                return { success: true, message: 'agenda over', data: snapshot.val() };
-            }
-        })
-        .catch(function (error) {
-            return { success: false, message: 'Invalid data: ${error.message}' };
-        });
-
-}
 agendaDatabase.new = newAgenda;
 agendaDatabase.remove = removeAgenda;
-agendaDatabase.update = updateAgenda;
-agendaDatabase.reset = resetAgenda;
-agendaDatabase.listen = listenAgenda;
+
+
+
+
+
+function salvarDados() {
+    let chave = document.getElementById("chave").textContent;
+    let dataInicial = document.getElementById("dataInicial").value;
+    let dataFinal = document.getElementById("dataFinal").value;
+    let intervalo = document.getElementById("intervalo").textContent;
+    let detalhesEvento = document.getElementById("detalhesEvento").value;
+    let local = document.getElementById("local").value;
+    let tempoEstimado = document.getElementById("tempoEstimado").value;
+    let nome = document.getElementById("nome").value;
+    let email = document.getElementById("email").value;
+    let telefone = document.getElementById("telefone").value;
+
+    if (intervalo == "") {
+        inserirData()
+    } else if (detalhesEvento == "") {
+        alert('Por favor, informar os detalhes do evento!')
+    } else if (local == "") {
+        alert('Por favor, informar local!')
+    } else if (tempoEstimado == "00:00") {
+        alert('Por favor, informar o tempo estimado do evento!')
+    } else if (nome == "") {
+        alert('Por favor, informar o nome do responsável!')
+    } else if (email == "") {
+        alert('Por favor, informar o email do responsável!')
+    } else if (nome == "") {
+        alert('Por favor, informar o nome do responsável!')
+    } else if (telefone == "") {
+        alert('Por favor, informar o telefone do responsável!')
+    } else {
+        for (let i = 0; i < intervalo; i++) {
+            let d = new Date(dataInicial);
+            d.setHours(d.getHours() + 3);
+            d.setDate(d.getDate() + i);
+            calendario.push(d)
+        }
+        agendaDatabase.new(nome, calendario);
+    }
+//     mudarTelaEvento()
+}
+
+
 
 
 //agendaDatabase.new('teste',['','','','','','']);
@@ -102,3 +148,8 @@ agendaDatabase.listen = listenAgenda;
 //agendaDatabase.update(['1','1','','','','']);
 //agendaDatabase.listen();
 
+/*
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+<script src="../js/auth.js"></script>
+*/

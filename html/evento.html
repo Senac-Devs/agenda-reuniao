@@ -6,20 +6,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>It'll happen</title>
     <link rel="stylesheet" href="../css/style.css">
-    <header>
-        <div class="container menu">
-            <h1>It'll happen!!</h1>
-        </div>
-    </header>
-    <div class="agendar">
-        <h1>Pré-evento!!</h1>
-        <h2>
-            <legend>Chave do Evento</legend>
-            <div id="chave" name="chave"></div>
-        </h2>
-        <img src="../img/age3.jpeg" alt="Pre-agendamento">
+</head>
+<header>
+    <div class="container menu">
+        <h1>It'll happen!!</h1>
     </div>
-    <form id="agendaTest">
+</header>
+
+<body>
+    <main>
+
+        <div>
+            <label>Chave..:</label>
+            <label id="chave"></label>
+        </div>
+        <div>
+            <label>Data Inicial.:</label>
+            <label id="dataInicial"></label>
+        </div>
+        <div>
+            <label>Data Final..:</label>
+            <label id="dataFinal"></label>
+        </div>
+        <div>
+            <label>Intervalo....:</label>
+            <label id="intervalo"></label>
+        </div>
+
         <form>
             <fieldset>
                 <section class="visualiza-semana">
@@ -75,20 +88,17 @@
                 </section>
             </fieldset>
         </form>
-    </form>
-    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
-    <script src="../js/auth.js"></script>
-    <script src="../js/agenda.js"></script>
-    <script src="../js/chave.js"></script>
-    <script src="../js/index.js"></script>
-    <script>geraStringAleatoria(tamanho);</script>
-    <footer>
-        <div class="container footer">
-            <p>Todos os direitos reservados &copy;2022 Senac School Project - HTML, CSS, Javascripts:
-                github.com/Senac-Devs</p>
-        </div>
-    </footer>
-    </body>
+        <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+        <script src="../js/auth.js"></script>
+        <script src="../js/index.js"></script>
+        <footer>
+            <div class="container footer">
+                <p>Todos os direitos reservados &copy;2022 Senac School Project - HTML, CSS, Javascripts:
+                    github.com/Senac-Devs</p>
+            </div>
+        </footer>
+    </main>
+</body>
 
 </html>

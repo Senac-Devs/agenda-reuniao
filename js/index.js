@@ -1,19 +1,11 @@
-var listaDias = [];
 
 function registrarEvent() {
     window.location.href = "./html/preagenda.html"
 }
 
-function mudaStatusDia(id, nDia) {
-    if (listaDias[nDia][nPeriodo]) {
-        document.getElementById(id).style.backgroundColor = "white";
-    } else {
-        document.getElementById(id).style.backgroundColor = "green";
-    }
 
-    atualizaListaDias(nDia, nPeriodo);
-}
 
-function atualizaListaDias(nDia, nPeriodo) {
-    listaDias[nDia][nPeriodo] = !listaDias[nDia][nPeriodo];
-}
+
+
+        //document.getElementById("inicio").innerHTML = new Intl.DateTimeFormat('pt-BR', { day: 'numeric', month: 'long', year: 'numeric' }).format(data1);
+       // document.getElementById("final").innerHTML = new Intl.DateTimeFormat('pt-BR', { day: 'numeric', month: 'long', year: 'numeric' }).format(data2);
