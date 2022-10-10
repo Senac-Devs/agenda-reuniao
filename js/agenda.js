@@ -7,20 +7,29 @@ function mudarTelaEvento() {
     window.location.href = "./evento.html"
 }
 
+var data = new Date();
+var dia = String(data.getDate()).padStart(2, '0');
+var mes = String(data.getMonth() + 1).padStart(2, '0');
+var ano = data.getFullYear();
+dataAtual = dia + '/' + mes + '/' + ano;
+console.log(dataAtual);
 
 var calendario = []
     
 function inserirData() {
-
+   
     
     let dInicial = document.getElementById("dataInicial").value;
     let dFinal = document.getElementById("dataFinal").value;
-    
+   
+    dataAtual = dia + '/' + mes + '/' + ano;
     
     if (dFinal == "" || dInicial == "") {
         alert('Por favor, inserir a data inicial e final!')
     } else if (dFinal < dInicial) {
         alert('Por favor, corrigir a data final!')
+    }else if(dInicial < dFinal){
+    alert('data menor que atual')
     } else {
         let data1 = new Date(dInicial);
         data1.setHours(data1.getHours() + 3);
