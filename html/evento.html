@@ -15,34 +15,36 @@
 
 <body>
     <main>
-
-        <div>
-            <label>Chave..:</label>
-            <label id="chave"></label>
-        </div>
-        <div>
-            <label>Data Inicial.:</label>
-            <label id="dataInicial"></label>
-        </div>
-        <div>
-            <label>Data Final..:</label>
-            <label id="dataFinal"></label>
-        </div>
-        <div>
-            <label>Intervalo....:</label>
-            <label id="intervalo"></label>
+        <div class="container">
+        <div class="box">
+            <div>
+                <label>Chave..:</label>
+                <label id="chave"></label>
+            </div>
+            <div>
+                <label>Data Inicial.:</label>
+                <label id="dataInicial"></label>
+            </div>
+            <div>
+                <label>Data Final..:</label>
+                <label id="dataFinal"></label>
+            </div>
+            <div>
+                <label>Intervalo....:</label>
+                <label id="intervalo"></label>
+            </div>
         </div>
 
         <form>
             <fieldset>
-                <section class="visualiza-semana">
+                <section class="box">
                     <div class="dia-semana">
                         <div class="info"></div>
-                        <div class="info">M</div>
-                        <div class="info">T</div>
-                        <div class="info">N</div>
+                        <div class="info">Manha</div>
+                        <div class="info">Tarde</div>
+                        <div class="info">Noite</div>
                     </div>
-
+                    
                     <div class="dia-semana">
                         <div>Seg</div>
                         <div class="info periodo" id="seg-m" onclick="mudaStatusDia(`seg-m`, 0, 0)"></div>
@@ -87,6 +89,7 @@
                     </div>
                 </section>
             </fieldset>
+        </div>
         </form>
         <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
         <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
