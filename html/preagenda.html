@@ -4,49 +4,108 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>It'll happen</title>
+    <title>Pré-Agendamento!!</title>
     <link rel="stylesheet" href="../css/style.css">
     <header>
-        <div class="container menu">
-            <h1>It'll happen!!</h1>
-        </div>
+        <h1>Pré-Agendamento!!</h1>
     </header>
-    <div class="agendar">
-        <h1>Pré-evento!!</h1>
-        <h2>
-            <legend>Chave do Evento</legend>
-            <div id="chave" name="chave"></div>
-        </h2>
-        <img src="../img/age3.jpeg" alt="Pre-agendamento">
-        <form id="agendaTest">
-            <fieldset id="entradaDados">
-                <legend>Dados do Organizador</legend>
-                <label for="nome">Nome :</label>
-                <input type="text" id="nome" name="nome" placeholder="Nome Completo" required>
-                <label for="email">e-mail :</label>
-                <input type="email" id="email" name="email" placeholder="Seu e-mail" required>
-                <label for="telefone">Telefone :</label>
-                <input type="number" id="telefone" name="telefone" placeholder="Seu telefone com DDD" required>
-                <button type="submit">Salvar Dados</button>
-            </fieldset>
-        </form>
+
+<body>
+    <div class="container">
+        <figure>
+            <img src="../img/age3.jpeg" alt="Pre-agendamento">
+        </figure>
+        <br>
+        <br>
+        <div class="chave">
+            <label>Chave..:</label>
+            <label id="chave"></label>
+        </div>
+        <fieldset class="box">
+            <div class="periodo">
+                <br>
+                <label><b>Faixa de datas para escolha:</b></label>
+                <div>
+                    <br>
+                    <label>Data inicial sugestiva..:</label>
+                    <input type="date" class="data" name="data" id="dataInicial" required>
+                </div>
+                <br>
+                <div>
+                    <label>Data final sugestiva....:</label>
+                    <input type="date" class="data" name="data" id="dataFinal" required>
+                </div>
+                <br>
+                <div>
+                    <label>Intervalo em dias........:</label>
+                    <label id="intervalo"></label>
+                </div>
+                <br>
+                <div class="botaoPeriodo">
+                    <input type="button" class="registrar" name='botao' value="Inserir" onclick="inserirData()">
+                </div>
+            </div>
+        </fieldset>
+        <br>
+        <fieldset class="box">
+            <div class="encontro">
+                <br>
+                <label><b>Detalhes do Encontro:</b></label>
+                <br>
+                <textarea id="detalhesEvento" rows="3" cols="34"></textarea>
+                <br>
+                <label><b>Local:</b></label>
+                <br>
+                <textarea id="local" rows="2" cols="34"></textarea>
+                <br>
+                <div>
+                    <label>Tempo estimado duração:</label>
+                    <input type="time" name="time" value="00:00" id="tempoEstimado">
+                </div>
+            </div>
+        </fieldset>
+        <br>
+        <fieldset class="box">
+            <div class="organizador">
+                <label><b>Dados do Organizador</b></label>
+                <br>
+                <div>
+                    <label for="nome">Nome.....:</label>
+                    <input type="text" id="nome" name="nome" placeholder="Nome Completo" required>
+                </div>
+                <br>
+                <div>
+                    <label for="email">E-mail.....:</label>
+                    <input type="email" id="email" name="email" placeholder="Seu e-mail" required>
+                </div>
+                <br>
+                <div>
+                    <label for="telefone">Telefone..:</label>
+                    <input type="number" id="telefone" name="telefone" placeholder="Seu telefone com DDD" required>
+                </div>
+                <br>
+
+                <button class="registrar" type="submit" value="Inserir" onclick="salvarDados()">Salvar dados</button>
+               
+            </div>
+        </fieldset>
+     
+
     </div>
-
-
-
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
     <script src="../js/auth.js"></script>
     <script src="../js/agenda.js"></script>
     <script src="../js/chave.js"></script>
     <script>geraStringAleatoria(tamanho);</script>
-    <footer>
-        <div class="container footer">
-            <p>Todos os direitos reservados &copy;2022 Senac School Project - HTML, CSS, Javascripts:
-                github.com/Senac-Devs</p>
-        </div>
-    </footer>
-    </body>
+<br>
+
+</body>
 
 </html>
 

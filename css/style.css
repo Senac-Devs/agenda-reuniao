@@ -8,53 +8,101 @@ header {
     background-color: hsl(0, 64%, 57%);
     height: 100%;
     color: #fff;
-}
-.menu{
     display: flex;
+    flex-direction: column;
     align-items: center;
-    padding: 0 410px 0 40px;
-
- }
-#texto_area{
-    background-color: hsl(0, 64%, 57%);
-    color: #fff;
-    padding: 5px;
-    margin-bottom: 10px;
-    width: -webkit-fill-available;
-    border: none;
 }
-.agendar {
-    text-align: center;
-    line-height: 2.5;
+
+body {
+    background-color: rgb(247, 243, 243);
+}
+
+figure {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 50px;
+    width: 100px;
+    height: 100px;
+
 }
 
 .container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    max-width: 992px;
     margin: auto;
-    width: 100%;
-    min-width: 320px;
+}
+
+.chave {
+    padding-top: 10px;
+    font-size: x-large;
+}
+
+.box {
+    padding: 10px;
+    padding: 10px;
+    box-shadow: 5px 5px 5px 0px rgba(175, 86, 86, 0.1);
+    border-radius: 25px;
+
+}
+
+.botaoPeriodo {
+    display: flex;
+    justify-content: center;
+}
+
+.encontro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .registrar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: hsl(0, 64%, 57%);
     color: #fff;
-    padding: 5px;
-    margin-bottom: 10px;
-    width: -webkit-fill-available;
     border: none;
+    height: 25px;
+    width: 100px;
+    font-style: oblique;
+    border-radius: 5px;
     cursor: pointer;
 }
 
+.organizador {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+input {
+    padding: 2px;
+    border-radius: 5px;
+    border-width: 1px;
+}
+
 footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: hsl(0, 64%, 57%);
     position: absolute;
     bottom: 0;
     width: 100%;
+    height: 20px;
+    font-size: 12px;
+    font-style: italic;
 }
 
 footer .footer {
     color: #fff;
+}
+
+
+.loading label{
+    font-size: 24px;
+    color: aqua;
 }
