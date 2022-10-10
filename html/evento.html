@@ -15,38 +15,56 @@
 
 <body>
     <main>
+        <div class="container"> 
 
-        <div>
-            <label>Chave..:</label>
-            <label id="chave"></label>
+            <fieldset class="box">  
+                <div class="Chave">
+                    <label>Chave:</label>
+                    <label id="chave"></label>
+                    <input type="text" id="chave" name="chave" placeholder="Sua chave" required>
+                    <br>
+                </div>
+                <div>
+                    <label>Data Inicial:</label>
+                    <label id="dataInicial"></label>
+                    <input type="texte" id="dataI" name="dataI*" placeholder="Insira a data" required>
+                </div>
+                <div>
+                    <label>Data Final:</label>
+                    <label id="dataFinal"></label>
+                    <input type="texte" id="dataF" name="dataF" placeholder="Insira a data" required>
+                </div>
+                <div>
+                    <label>Intervalo:</label>
+                    <label id="intervalo"></label>
+                    <input type="texte" id="intervalo" name="intervalo" placeholder="Insira o intervalo" required>
+                </div>
+            </fieldset>
+            
         </div>
-        <div>
-            <label>Data Inicial.:</label>
-            <label id="dataInicial"></label>
-        </div>
-        <div>
-            <label>Data Final..:</label>
-            <label id="dataFinal"></label>
-        </div>
-        <div>
-            <label>Intervalo....:</label>
-            <label id="intervalo"></label>
-        </div>
-
         <form>
-            <fieldset>
-                <section class="visualiza-semana">
-                    <div class="dia-semana">
-                        <div class="info"></div>
-                        <div class="info">M</div>
-                        <div class="info">T</div>
-                        <div class="info">N</div>
-                    </div>
-
-                    <div class="dia-semana">
-                        <div>Seg</div>
-                        <div class="info periodo" id="seg-m" onclick="mudaStatusDia(`seg-m`, 0, 0)"></div>
-                        <div class="info periodo" id="seg-t" onclick="mudaStatusDia(`seg-t`, 0, 1)"></div>
+            <div class="container">
+                <fieldset class="box">
+                    <section class="visualiza-semana">
+                        <div class="dia-semana">
+                            <div class="info">Turno:</div>
+                            <div class="info">Manhã
+                                <input type = "checkbox" id = "subscribeNews" name = "subscribe" value = "newsletter">
+                            </div>
+                            <div class="info">Tarde
+                                <input type = "checkbox" id = "subscribeNews" name = "subscribe" value = "newsletter">
+                            </div>
+                            <div class="info">Noite
+                                <input type = "checkbox" id = "subscribeNews" name = "subscribe" value = "newsletter">
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+                    <div class="container">
+                        <div class="dia-semana">
+                            <div>Seg</div>
+                            <div class="info periodo" id="seg-m" onclick="mudaStatusDia(`seg-m`, 0, 0)"></div>
+                            <div class="info periodo" id="seg-t" onclick="mudaStatusDia(`seg-t`, 0, 1)"></div>
                         <div class="info periodo" id="seg-n" onclick="mudaStatusDia(`seg-n`, 0, 2)"></div>
                     </div>
                     <div class="dia-semana">
@@ -85,6 +103,7 @@
                         <div class="info periodo" id="dom-t" onclick="mudaStatusDia(`dom-t`, 6, 1)"></div>
                         <div class="info periodo" id="dom-n" onclick="mudaStatusDia(`dom-n`, 6, 2)"></div>
                     </div>
+                </div>
                 </section>
             </fieldset>
         </form>
