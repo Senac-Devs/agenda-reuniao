@@ -9,9 +9,7 @@ function mudarTelaEvento() {
 
 
 var calendario = []
-    Calendar c = Calendar.getInstance();
-    System.out.println("Data e Hora atual: ”+c.getTime());
-
+    
 function inserirData() {
 
     
