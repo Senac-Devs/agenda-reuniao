@@ -40,7 +40,6 @@
                     <input type="texte" id="intervalo" name="intervalo" placeholder="Insira o intervalo" required>
                 </div>
             </fieldset>
-            
         </div>
         <form>
             <div class="container">
@@ -65,6 +64,21 @@
                             <div>Seg</div>
                             <div class="info periodo" id="seg-m" onclick="mudaStatusDia(`seg-m`, 0, 0)"></div>
                             <div class="info periodo" id="seg-t" onclick="mudaStatusDia(`seg-t`, 0, 1)"></div>
+
+            <fieldset>
+                <section class="box">
+                    <div class="dia-semana">
+                        <div class="info"></div>
+                        <div class="info">Manha</div>
+                        <div class="info">Tarde</div>
+                        <div class="info">Noite</div>
+                    </div>
+                    
+                    <div class="dia-semana">
+                        <div>Seg</div>
+                        <div class="info periodo" id="seg-m" onclick="mudaStatusDia(`seg-m`, 0, 0)"></div>
+                        <div class="info periodo" id="seg-t" onclick="mudaStatusDia(`seg-t`, 0, 1)"></div>
+
                         <div class="info periodo" id="seg-n" onclick="mudaStatusDia(`seg-n`, 0, 2)"></div>
                     </div>
                     <div class="dia-semana">
@@ -106,6 +120,7 @@
                 </div>
                 </section>
             </fieldset>
+        </div>
         </form>
         <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
         <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
