@@ -9,12 +9,16 @@ function mudarTelaEvento() {
 
 
 var calendario = []
+    Calendar c = Calendar.getInstance();
+    System.out.println("Data e Hora atual: ”+c.getTime());
 
 function inserirData() {
 
+    
     let dInicial = document.getElementById("dataInicial").value;
     let dFinal = document.getElementById("dataFinal").value;
-
+    
+    
     if (dFinal == "" || dInicial == "") {
         alert('Por favor, inserir a data inicial e final!')
     } else if (dFinal < dInicial) {
