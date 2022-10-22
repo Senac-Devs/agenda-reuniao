@@ -1,57 +1,87 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-Br">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>It'll happen</title>
-    <link rel="stylesheet" href="./css/style.css">
-    <script src="./js/index.js"></script>
-</head>git
-<header>
-    <h1>Pré-Agendamento!!</h1>
-</header>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pré-Agendamento!!</title>
+  <link rel="stylesheet" href="./css/index.css" />
+</head>
 
 <body>
-    <div class="container">
-        <figure>
-            <img src="./img/agetop.jpeg" alt="Pre-agendamento">
-        </figure>
-        <br>
-        <div>
-            <h2>Sobre o sistema.</h2>
-            <br>
-            <p>Para iniciar o sistema você deve gerar uma chave para centralizar todas as informações.</p>
-            <p>Assim que você clicar em gerar chave será redirecionado para tela de Pré-Agendamento!!.</p>
-            <br>
-            <p>Na tela seguinte informar: <br>
-                <br>
-                - Data inicial e final possibilitando aos convidados uma faixa datas para escolher o dia e período; <br>
-                - Detalhes do encontro; <br>
-                - Possível local; <br>
-                - Tempo estimado de duração; <br>
-            </p>
-            <br>
-            <p>Com os os dados preenchidos clicar em inserir para registrar tudo.</p>
-            <p>Em seguida compartilhar com os seus convidados onde iram escolher <br>
-                dentro da faixa estabelecida qual o dia e período terá disponibilidade</p>
-
-            <p>A qualquer momento você poderá acompanhar toda evolução do pre-agendamento. </p>
-
-            <p>Definindo assim o período mais conveniente para realização do encontro com a maioria convidada .</p>
-        </div>
-        <br>
-        <button type="button" class="registrar" onclick="registrarEvent()"> Gerar Chave </button>
+  <header>
+    <div class="paginas">
+      <div>
+        <h1>Pré-Agendamento!!</h1>
+      </div>
+      <nav>
+        <ul class="list-items">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="./html/preagenda.html">Registrar</a></li>
+          <li><a href="./html/evento.html">Buscar</a></li>
+        </ul>
+      </nav>
     </div>
-    <br>
-    <br>
-    <footer>
-        <div class="container footer">
-            <p><b>Todos os direitos reservados &copy;2022 Senac School Project - HTML, CSS, Javascripts:
-                    github.com/Senac-Devs</b>
-            </p>
-        </div>
-    </footer>
+  </header>
+  <main>
+    <label class="hojeDia" id="hojeDia"></label>
+    <figure>
+      <img src="./img/agetop.jpeg" alt="Pre-agendamento" />
+    </figure>
+    
+    <div class="index">
+      <h2>Sobre o sistema.</h2>
+      <br />
+      <p>
+        Para iniciar o sistema você deve gerar uma chave para centralizar todas as informações. Assim que você clicar em
+        gerar chave será redirecionado para tela de
+        Pré-Agendamento!!.
+      </p>
+      <br />
+      <p>
+        Na tela seguinte informar:
+        <br />
+        - Data inicial e final possibilitando aos convidados uma faixa datas
+        para escolher o dia e período;
+        <br />
+        - Detalhes do encontro;
+        <br />
+        - Possível local;
+        <br />
+        - Tempo estimado de duração;
+        <br />
+      </p>
+      <p>
+        Com os os dados preenchidos clicar em registrar para salvar tudo.
+      </p>
+      <p>
+        <br>
+        Em seguida compartilhar com os seus convidados a chave para que eles tenham acessos e possa
+        escolher dentro da faixa estabelecida qual o dia e período terá disponibilidade.
+      </p>
+      <p>
+        <br>
+        A qualquer momento você poderá acompanhar todas evoluções do pre-agendamento. Definindo assim o período mais
+        conveniente para realização do encontro
+        com a maioria dos convidados(as).
+      </p>
+      <br>
+      <div class="alinharButton">
+        <button type="button" class="registrar" onclick="registrarEvent()">Gerar Chave</button>
+      </div>
+    </div>
+  </main>
+  <script src="./js/index.js"></script>
+  <footer>
+    <div class="container footer">
+      <p>
+        <b>
+          Todos os direitos reservados &copy;2022 Senac School Project - github.com/Senac-Devs
+        </b>
+      </p>
+    </div>
+  </footer>
 </body>
 
 </html>
