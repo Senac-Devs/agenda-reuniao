@@ -3,7 +3,9 @@ var chaveAcesso = ""
 function buscar() {
   chaveAcesso = document.getElementById('acesso').value.toUpperCase();
   buscarEvento();
-
+ if (chaveAcesso == '') {
+  alert ('Por favor, inserir a chave de acesso!')
+ }
 }
 
 var chaveAcesso = document.getElementById('acesso').value;
