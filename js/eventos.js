@@ -5,6 +5,12 @@ var emailAcesso = "";
 function buscar() {
   chaveAcesso = document.getElementById('acesso').value.toUpperCase();
   buscarEvento();
+<<<<<<< HEAD
+ if (chaveAcesso == '') {
+  alert ('Por favor, inserir a chave de acesso!')
+ }
+=======
+>>>>>>> fb4c9bef33fb701bb02e972ee7de1241cb50a798
 }
 
 function buscarEmail() {
