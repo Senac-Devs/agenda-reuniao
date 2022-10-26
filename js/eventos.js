@@ -203,10 +203,10 @@ function adicionarNaTela(chaves) {
   });
 }
 
-
 function formatarDiaInicial(dataInicial) {
+  dataInicial.setHours(dataInicial.getHours() + 3);
   let diaNome = ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"]
-  let weekDate = new Date(dataInicial).getDay()
+  let weekDate = new Date(dataInicial).getDay();
   return diaNome[weekDate]
 }
 
