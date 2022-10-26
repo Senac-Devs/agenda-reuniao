@@ -33,16 +33,13 @@
     </figure>
     <div class="container">
       <br>
-      <label>teste - Z8PL9N</label>
       <form class="busca">
         <input type="text" id="acesso" placeholder="Acesso através da chave..." />
-        <input type="button" id="acesso" class="registrar" name='botao' value="Buscar chave" onclick="buscar()">
+        <input type="button" class="registrar" id="acessoBotao" name='botao' value="Buscar chave" onclick="buscar()">
+        <input type="button" class="registrar" id="acessoEmail" name='botao' value="Encontrar chave"
+          onclick="paginaBuscaPorEmail()">
       </form>
       <br>
-      <form class="busca">
-        <input type="text" id="acessoEmail" placeholder="Localizar chaves por email." />
-        <input type="button" id="acessoEmail" class="registrar" name='botao' value="Buscar email" onclick="buscarEmail()">
-      </form>
       <br>
       <h2>Sobre o encontro.</h2>
       <br>
@@ -50,7 +47,9 @@
       <br>
       <p>Por favor, escolha nos dias e períodos abaixo, quais as opções que melhor se encaixa para sua
         participação..</p>
+        <table class="semana" id="semana"></table>
       <section class="visualiza-semana">
+
         <div class="dia-semana">
           <div class="info periodo" id="dom-m" onclick="mudaStatusDia(`dom-m`, 0, 0)"></div>
           <div class="info periodo" id="dom-t" onclick="mudaStatusDia(`dom-t`, 0, 1)"></div>
@@ -111,15 +110,15 @@
   <script src="../js/auth.js"></script>
   <script src="../js/index.js"></script>
   <script src="../js/eventos.js"></script>
-  <footer>
-    <div class="container footer">
+  <div class="rodape">
+    <footer>
       <p>
         <b>
           Todos os direitos reservados &copy;2022 Senac School Project - github.com/Senac-Devs
         </b>
       </p>
-    </div>
-  </footer>
+    </footer>
+  </div>
 </body>
 
 </html>
