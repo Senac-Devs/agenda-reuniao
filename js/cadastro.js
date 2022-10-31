@@ -20,9 +20,9 @@ function salvarDados() {
     } else if (telefone == '') {
         alert('Por favor, informar o telefone do responsável!')
     } else {
-        for (let i = 0; i <= intervalo; i++) {
+        for (let i = 0; i < intervalo; i++) {
             let d = new Date(dataInicial)
-            d.setHours(d.getHours() + 3)
+            d.setHours(d.getHours() + 4)
             d.setDate(d.getDate() + i)
             calendario.push(d)
         }
