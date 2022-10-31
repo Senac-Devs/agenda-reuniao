@@ -1,3 +1,4 @@
+const nomeDiaSemana = ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"]
 var chaveAcesso = "";
 var emailAcesso = "";
 
@@ -50,9 +51,7 @@ function formatarDataInicial(dataInicial) {
 
 function formatarDataFinal(dataFinal) {
   return new Date(dataFinal).toLocaleDateString('pt-br');
-}
-
-
+} const d = (semana.intervalo);
 
 function adicionarNaTelaEmail(chaves) {
   const ordenarChave = document.getElementById('chavesPorEmail');
@@ -70,7 +69,7 @@ function adicionarNaTelaEmail(chaves) {
     if (chaves.dataInicial) {
       let tr = document.createElement('tr');
       ordenarChave.appendChild(tr);
-      let dataInicial = document.createElement('td');
+      let dataInicial = document.createElement('td'); const d = (semana.intervalo);
       dataInicial.innerHTML = 'Data inicial sugestiva.';
       tr.appendChild(dataInicial);
       let td = document.createElement('td');
@@ -96,6 +95,8 @@ function adicionarNaTelaEmail(chaves) {
     }
   });
 }
+
+
 
 function adicionarNaTela(chaves) {
   const ordenarChave = document.getElementById('chaves');
@@ -152,7 +153,7 @@ function adicionarNaTela(chaves) {
     }
     if (chaves.local) {
       let tr = document.createElement('tr');
-      ordenarChave.appendChild(tr);
+      ordenarChave.appendChild(tr); const d = (semana.intervalo);
       let local = document.createElement('td');
       local.innerHTML = 'Local.';
       tr.appendChild(local);
@@ -203,28 +204,52 @@ function adicionarNaTela(chaves) {
   });
 }
 
-function formatarDiaInicial(dataInicial) {
-  dataInicial.setHours(dataInicial.getHours() + 3);
-  let diaNome = ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"]
-  let weekDate = new Date(dataInicial).getDay();
-  return diaNome[weekDate]
-}
 
 
 
 function adicionarSemana(chaves) {
-  const ordenarSemana = document.getElementById('semana');
-  chaves.forEach(semana => {
 
-    if (semana.dataInicial) {
-      let tr = document.createElement('tr');
+  let dia = ""
+  let divDiaSemana = document.createElement('div');
+  divDiaSemana.className = 'dia-semana'
+  let div = document.createElement('div')
+  div.id = 'meuId';
+  div.className = 'info periodo';
+  div.setAttribute("onclick", "mudaStatusDia()")
+  const ordenarSemana = document.getElementById('semana');
+
+  const d = (chaves[0].intervalo);
+
+  console.log(chaves)
+
+  chaves.forEach(semana => {
+    console.log(semana, semana.dataInicial)
+    console.log(new Date(semana.dataInicial))
+
+    const diaInicial = new Date(semana.dataInicial)
+    let diaAtual = diaInicial
+
+
+    for (let i = 0; i < d; i++) {
+      diaAtual = new Date(diaAtual.setDate(diaInicial.getDate()+i))
+
+
+      const diaSemana = diaAtual.getDay()
+      const diaMes = diaAtual.getDate()
+      console.log(diaInicial, diaAtual, diaSemana, diaMes)
+      console.log(i)
+
+      const tr = document.createElement('tr');
+
       ordenarSemana.appendChild(tr);
       let td = document.createElement('td');
-      td.innerHTML = formatarDiaInicial(semana.dataInicial);
+      td.innerHTML = `<div>${nomeDiaSemana[diaSemana]}</div><br><div>${diaMes}</div>`;
       tr.appendChild(td);
+      ordenarSemana.appendChild(tr)
+      tr.appendChild(divDiaSemana)
+      divDiaSemana.appendChild(div)
     }
   });
-
 }
 
 
@@ -245,4 +270,20 @@ function atualizaListaDias(dia, periodo) {
   listaDias[dia][periodo] = !listaDias[dia][periodo];
 }
 
+/*
 
+    if (semana.dataInicial) {
+      let tr = document.createElement('tr');
+      ordenarSemana.appendChild(tr);
+      let td = document.createElement('td');
+      td.innerHTML = formatarDiaInicial(semana.dataInicial);
+      tr.appendChild(td);
+    }
+    if (semana.dataFinal) {
+      let tr = document.createElement('tr');
+      ordenarSemana.appendChild(tr);
+      let td = document.createElement('td');
+      td.innerHTML = formatarDiaFinal(semana.dataFinal);
+      tr.appendChild(td);
+    }
+*/
