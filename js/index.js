@@ -11,16 +11,6 @@ queDiaEHoje();
 function registrarEvent() {
     window.location.href = "./html/preagenda.html"
 }
-
-function paginaBuscaPorEmail() {
-    window.open("chavesPorEmail.html");
-}
-
-
-function mudarTelaEvento() {
-    window.location.href = './evento.html'
-}
-
 function inserirData() {
     let dInicial = document.getElementById('dataInicial').value
     let dFinal = document.getElementById('dataFinal').value

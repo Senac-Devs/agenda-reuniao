@@ -1,4 +1,5 @@
 var calendario = []
+var participantes = []
 
 function salvarDados() {
     let dataInicial = document.getElementById('dataInicial').value
@@ -57,6 +58,4 @@ form.addEventListener('submit', (event) => {
             alert(`Cadastro da chave ${chaveEvento} nao realizado!`);
         });
 });
-
-
 
