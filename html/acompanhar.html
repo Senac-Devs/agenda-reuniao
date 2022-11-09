@@ -8,34 +8,40 @@
   <title>Pré-Agendamento!!</title>
   <link rel="stylesheet" href="../css/index.css" />
   <link rel="stylesheet" href="../css/buscar.css" />
+
 </head>
-<header>
-  <div class="paginas">
-    <div>
-      <h1>Pré-Agendamento!!</h1>
-    </div>
-  </div>
-</header>
 
 <body>
+  <header>
+    <div class="paginas">
+      <div>
+        <h1>Acompanhar!!</h1>
+      </div>
+      <nav>
+        <ul class="list-items">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="./preagenda.html">Agendamento</a></li>
+          <li><a href="./participar.html">Participar</a></li>
+          <li><a href="./acompanhar.html">Acompanhar</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
   <main>
+    <label name="chave" id="hojeDia"></label>
+    <figure>
+      <img src="../img/age3.jpeg" alt="Pre-agendamento" />
+    </figure>
     <div class="container">
       <br>
-      <form class="busca">
-        <input type="text" id="acessoEmail" placeholder="Localizar chaves por email." />
-        <input type="button" id="acessoBotao" class="registrar" name='botao' value="Buscar email"
-          onclick="buscarEmail()">
-      </form>
-      <br>
       <h2>Sobre o encontro.</h2>
-      <br>
-      <table class="box" id="chavesPorEmail"></table>
       <br>
     </div>
   </main>
   <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
   <script src="../js/auth.js"></script>
+  <script src="../js/index.js"></script>
   <script src="../js/eventos.js"></script>
   <div class="rodape">
     <footer>

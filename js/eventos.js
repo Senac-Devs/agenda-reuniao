@@ -1,4 +1,4 @@
-const nomeDiaSemana = ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"]
+const nomeDiaSemana = ["domingo", "segunda", "terça", "quarta", "quinta", "sexta", "sábado"]
 var chaveAcesso = "";
 var emailAcesso = "";
 
@@ -28,7 +28,13 @@ function buscarEvento() {
     .where('chave', '==', chaveAcesso)
     .get()
     .then(snapshot => {
-      const chaves = snapshot.docs.map(doc => doc.data())
+      const chaves = snapshot.docs.map(doc => ({
+        ...doc.data(),
+        uid: doc.id
+      }));
+      if (chaves == "") {
+        alert(`Chave - ${chaveAcesso} não encontrado!`);
+      }
       adicionarNaTela(chaves);
       adicionarSemana(chaves);
     })
@@ -40,7 +46,13 @@ function buscarEventoEmail() {
     .where('email', '==', emailAcesso)
     .get()
     .then(snapshot => {
-      const chaves = snapshot.docs.map(doc => doc.data())
+      const chaves = snapshot.docs.map(doc => ({
+        ...doc.data(),
+        uid: doc.id
+      }));
+      if (chaves == "") {
+        alert(`Email - ${emailAcesso} não encontrado!`);
+      }
       adicionarNaTelaEmail(chaves)
     })
 };
@@ -51,10 +63,10 @@ function formatarDataInicial(dataInicial) {
 
 function formatarDataFinal(dataFinal) {
   return new Date(dataFinal).toLocaleDateString('pt-br');
-} const d = (semana.intervalo);
+}
 
 function adicionarNaTelaEmail(chaves) {
-  const ordenarChave = document.getElementById('chavesPorEmail');
+  const ordenarChave = document.getElementById('chaves');
   chaves.forEach(chaves => {
     if (chaves.chave) {
       let tr = document.createElement('tr');
@@ -69,7 +81,7 @@ function adicionarNaTelaEmail(chaves) {
     if (chaves.dataInicial) {
       let tr = document.createElement('tr');
       ordenarChave.appendChild(tr);
-      let dataInicial = document.createElement('td'); const d = (semana.intervalo);
+      let dataInicial = document.createElement('td');
       dataInicial.innerHTML = 'Data inicial sugestiva.';
       tr.appendChild(dataInicial);
       let td = document.createElement('td');
@@ -86,17 +98,48 @@ function adicionarNaTelaEmail(chaves) {
       td.innerHTML = formatarDataFinal(chaves.dataFinal);
       tr.appendChild(td);
     }
-    if (chaves.email) {
+    if (chaves.detalhesEvento) {
       let tr = document.createElement('tr');
       ordenarChave.appendChild(tr);
-      let espaco = document.createElement('td');
-      espaco.innerHTML = '_______________________';
-      tr.appendChild(espaco);
+      let detalhesEvento = document.createElement('td');
+      detalhesEvento.innerHTML = 'Detalhes do Encontro.';
+      tr.appendChild(detalhesEvento);
+      let td = document.createElement('td');
+      td.innerHTML = chaves.detalhesEvento;
+      tr.appendChild(td);
     }
+    if (chaves.local) {
+      let tr = document.createElement('tr');
+      ordenarChave.appendChild(tr);
+      let local = document.createElement('td');
+      local.innerHTML = 'Local.';
+      tr.appendChild(local);
+      let td = document.createElement('td');
+      td.innerHTML = chaves.local;
+      tr.appendChild(td);
+    }
+
+    if (chaves.chave) {
+      let tr = document.createElement('tr');
+      ordenarChave.appendChild(tr);
+      let button = document.createElement('button')
+      button.addEventListener('click', () => {
+        document.getElementById("acessoBotao").disabled = true;
+        chaveAcesso = chaves.chave
+        buscarEvento(chaveAcesso)
+      })
+      button.id = 'acessoBotao'
+      button.className = 'registrar'
+      button.innerHTML = 'Buscar'
+      tr.appendChild(button)
+    }
+    let tr = document.createElement('tr');
+    ordenarChave.appendChild(tr);
+    let espaco = document.createElement('td');
+    espaco.innerHTML = '&nbsp';
+    tr.appendChild(espaco);
   });
 }
-
-
 
 function adicionarNaTela(chaves) {
   const ordenarChave = document.getElementById('chaves');
@@ -153,7 +196,7 @@ function adicionarNaTela(chaves) {
     }
     if (chaves.local) {
       let tr = document.createElement('tr');
-      ordenarChave.appendChild(tr); const d = (semana.intervalo);
+      ordenarChave.appendChild(tr);
       let local = document.createElement('td');
       local.innerHTML = 'Local.';
       tr.appendChild(local);
@@ -206,84 +249,59 @@ function adicionarNaTela(chaves) {
 
 
 
-
 function adicionarSemana(chaves) {
 
-  let dia = ""
-  let divDiaSemana = document.createElement('div');
-  divDiaSemana.className = 'dia-semana'
-  let div = document.createElement('div')
-  div.id = 'meuId';
-  div.className = 'info periodo';
-  div.setAttribute("onclick", "mudaStatusDia()")
+  console.log(chaves)
   const ordenarSemana = document.getElementById('semana');
-
   const d = (chaves[0].intervalo);
 
-  console.log(chaves)
 
   chaves.forEach(semana => {
-    console.log(semana, semana.dataInicial)
-    console.log(new Date(semana.dataInicial))
-
     const diaInicial = new Date(semana.dataInicial)
     let diaAtual = diaInicial
-
-
     for (let i = 0; i < d; i++) {
-      diaAtual = new Date(diaAtual.setDate(diaInicial.getDate()+i))
-
-
+      diaAtual = new Date(diaAtual.setDate(diaInicial.getDate() + i))
       const diaSemana = diaAtual.getDay()
       const diaMes = diaAtual.getDate()
-      console.log(diaInicial, diaAtual, diaSemana, diaMes)
-      console.log(i)
 
       const tr = document.createElement('tr');
-
       ordenarSemana.appendChild(tr);
+
       let td = document.createElement('td');
-      td.innerHTML = `<div>${nomeDiaSemana[diaSemana]}</div><br><div>${diaMes}</div>`;
-      tr.appendChild(td);
-      ordenarSemana.appendChild(tr)
-      tr.appendChild(divDiaSemana)
-      divDiaSemana.appendChild(div)
+      td.innerHTML = (nomeDiaSemana[diaSemana] + '&nbsp dia')
+      tr.appendChild(td)
+
+
+      let tdDiaMes = document.createElement('td');
+      tdDiaMes.id = ('diaMes' + diaMes)
+      tdDiaMes.innerHTML = diaMes
+      tr.appendChild(tdDiaMes)
+
+      let tdHorario = document.createElement('td');
+      tdHorario.innerHTML =
+        `<select id=horaDia${diaMes}>
+          <option value=""></option>
+          <option value="0700">0700</option>
+          <option value="0800">0800</option>
+          <option value="0900">0900</option>
+          <option value="1000">1000</option>
+          <option value="1100">1100</option>
+          <option value="1200">1200</option>
+          <option value="1300">1300</option>
+          <option value="1400">1400</option>
+          <option value="1500">1500</option>
+          <option value="1600">1600</option>
+          <option value="1700">1700</option>
+          <option value="1800">1800</option>
+          <option value="1900">1900</option>
+          <option value="2000">2000</option>
+          <option value="2100">2100</option>
+          <option value="2200">2200</option>
+          <option value="2300">2300</option>
+        </select>`
+      tr.appendChild(tdHorario)
     }
   });
 }
 
 
-
-var listaDias = [];
-for (let dias = 0; dias < 7; dias++) {
-  listaDias.push([false, false, false]);
-}
-function mudaStatusDia(id, dia, periodo) {
-  if (listaDias[dia][periodo]) {
-    document.getElementById(id).style.backgroundColor = "hsl(0, 64%, 57%)";
-  } else {
-    document.getElementById(id).style.backgroundColor = "#CCC";
-  }
-  atualizaListaDias(dia, periodo);
-}
-function atualizaListaDias(dia, periodo) {
-  listaDias[dia][periodo] = !listaDias[dia][periodo];
-}
-
-/*
-
-    if (semana.dataInicial) {
-      let tr = document.createElement('tr');
-      ordenarSemana.appendChild(tr);
-      let td = document.createElement('td');
-      td.innerHTML = formatarDiaInicial(semana.dataInicial);
-      tr.appendChild(td);
-    }
-    if (semana.dataFinal) {
-      let tr = document.createElement('tr');
-      ordenarSemana.appendChild(tr);
-      let td = document.createElement('td');
-      td.innerHTML = formatarDiaFinal(semana.dataFinal);
-      tr.appendChild(td);
-    }
-*/
