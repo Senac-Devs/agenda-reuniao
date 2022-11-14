@@ -68,12 +68,11 @@ nav ul {
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    flex-wrap: wrap;
 }
 
 nav ul li {
     width: 25%;
-    margin: 10px auto;
+    margin: 5px auto;
 }
 
 nav ul li a {

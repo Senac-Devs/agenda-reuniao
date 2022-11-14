@@ -11,6 +11,7 @@ queDiaEHoje();
 function registrarEvent() {
     window.location.href = "./html/preagenda.html"
 }
+
 function inserirData() {
     let dInicial = document.getElementById('dataInicial').value
     let dFinal = document.getElementById('dataFinal').value

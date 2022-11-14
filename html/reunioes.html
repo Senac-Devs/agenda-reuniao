@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agenda-Reunião</title>
+  <link rel="stylesheet" href="../css/index.css" />
+  <link rel="stylesheet" href="../css/buscar.css" />
+</head>
+<header>
+  <div class="paginas">
+    <div>
+      <h1>Reuniões</h1>
+    </div>
+    <nav>
+      <ul class="list-items">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="./preagenda.html">Agendamento</a></li>
+        <li><a href="./reunioes.html">Reuniões</a></li>
+        <li><a href="./participar.html">Participar</a></li>
+        <li><a href="./acompanhar.html">Acompanhar</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<main>
+  <label name="chave" id="hojeDia"></label>
+  <figure>
+    <img src="../img/buscar.png" alt="Pre-agendamento" />
+  </figure>
+  <div class="container">
+    <p>
+      Informe o email do responsável para ter acesso a todas as chaves criadas. Em seguida click em participar ou acompanhar para ser redirecionado. Note que será criado uma url com todos os dados para acesso direto. Podendo assim passar para seus convidados.
+    </p>
+    <br>
+    <form class="busca">
+      <input type="text" id="acessoEmail" placeholder="Buscar chave(s) por email." />
+      <input type="button" id="acessoBotaoEmail" class="registrar" name='botao' value="Buscar" onclick="buscarEmail()">
+    </form>
+    <br>
+    <h2>Encontro localizados:</h2>
+    <br>
+    <br>
+    <form class="info" id="participarEvento">
+      <table class="box" id="chaves"></table>
+    </form>
+  </div>
+</main>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+<script src="../js/auth.js"></script>
+<script src="../js/buscar.js"></script>
+<script src="../js/reunioes.js"></script>
+<script src="../js/index.js"></script>
+<div class="rodape">
+  <footer>
+    <p>
+      <b>
+        Todos os direitos reservados &copy;2022 Senac School Project - github.com/Senac-Devs
+      </b>
+    </p>
+  </footer>
+</div>
+</body>
+
+</html>
