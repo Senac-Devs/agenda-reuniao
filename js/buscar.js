@@ -5,6 +5,7 @@ var participanteDia = []
 var agendaDataUid = ""
 var np = ""
 var updateData = ""
+var horariosEscolhidos = []
 
 checkarg()
 
@@ -15,16 +16,19 @@ function checkarg() {
         agendaDataEvento(chaveAcesso)
     }
 }
+
+// * Buscar em Reuniões *
 function buscar() {
     chaveAcesso = document.getElementById('acesso').value.toUpperCase().trim();
     if (chaveAcesso == '') {
         alert('Por favor, inserir a chave de acesso!')
     } else {
         buscarEvento();
-        agendaDataEvento()
-
+        agendaDataEvento(chaveAcesso)
     }
 }
+
+// -------------faz select na coleção (AGENDA) no banco para buscar reunião através da chave.
 function buscarEvento() {
     firebase.firestore()
         .collection('agenda')
@@ -44,6 +48,7 @@ function buscarEvento() {
         })
 };
 
+// faz um select na agendaData para pegar UID e fazer atualizacao
 function agendaDataEvento() {
     firebase.firestore()
         .collection('agendaData')
@@ -57,32 +62,43 @@ function agendaDataEvento() {
             if (chaves == "") {
                 alert(`Chave - ${chaveAcesso} não encontrado!`);
             } else {
-
                 agendaDataUidUpdate(dataChaves)
             }
         })
 };
+
+let diaG = ""
 function agendaDataUidUpdate(dataChaves) {
     dataChaves.forEach(dataChaves => {
+        if (dataChaves.dataInicial) {
+            diaG = dataChaves.dataInicial
+        }
         if (dataChaves.uid) {
             agendaDataUid = dataChaves.uid
         }
         if (dataChaves.numeroParticipantes == "") {
             np = 1
-        } else {         
+        } else {
             np = dataChaves.numeroParticipantes + 1
         }
-        if (dataChaves.data){
-            updateData = dataChaves.data                      
+        if (dataChaves.data) {
+            updateData = dataChaves.data
+        }
+        if (dataChaves.numeroParticipantes) {
+            let numeroParticipantes = document.getElementById("numeroParticipantes")
+            if (!numeroParticipantes == "") {
+                horariosEscolhidos = updateData
+                document.getElementById("numeroParticipantes").innerText = dataChaves.numeroParticipantes;
+            }
         }
     })
+    ajusteGrafico()
 };
-
 function formatarDataInicial(dataInicial) {
-    return new Date(dataInicial).toLocaleDateString('pt-br');
+    return new Date(dataInicial).toLocaleDateString('pt-BR', { timeZone: 'UTC' });
 }
 function formatarDataFinal(dataFinal) {
-    return new Date(dataFinal).toLocaleDateString('pt-br');
+    return new Date(dataFinal).toLocaleDateString('pt-BR', { timeZone: 'UTC' });
 }
 function adicionarNaTela(chaves) {
     const ordenarChave = document.getElementById('chaves');
@@ -91,38 +107,57 @@ function adicionarNaTela(chaves) {
             document.getElementById("chave").innerText = chaves.chave;
         }
         if (chaves.dataInicial) {
-            console.log(dataInicial)
             document.getElementById("dataInicial").innerText = formatarDataInicial(chaves.dataInicial);
         }
         if (chaves.dataFinal) {
-            console.log(dataFinal)
             document.getElementById("dataFinal").innerText = formatarDataFinal(chaves.dataFinal)
         }
         if (chaves.intervalo) {
-            document.getElementById("intervalo").innerText = chaves.intervalo;
+            let intervalo = document.getElementById("intervalo")
+            if (!intervalo == "") {
+                document.getElementById("intervalo").innerText = chaves.intervalo;
+            }
         }
         if (chaves.detalhesEvento) {
             document.getElementById("detalhesEvento").innerText = chaves.detalhesEvento;
         }
         if (chaves.local) {
-            document.getElementById("local").innerText = chaves.local;
+            let local = document.getElementById("local")
+            if (!local == "") {
+                document.getElementById("local").innerText = chaves.local;
+            }
         }
         if (chaves.tempoEstimado) {
-            document.getElementById("tempoEstimado").innerText = chaves.tempoEstimado;
+            let tempoEstimado = document.getElementById("tempoEstimado")
+            if (!tempoEstimado == "") {
+                document.getElementById("tempoEstimado").innerText = chaves.tempoEstimado;
+            }
         }
         if (chaves.nome) {
             document.getElementById("nomeResponsavel").innerText = chaves.nome;
         }
         if (chaves.email) {
-            document.getElementById("emailResponsavel").innerText = chaves.email;
+            let emailResponsavel = document.getElementById("emailResponsavel")
+            if (!emailResponsavel == "") {
+                document.getElementById("emailResponsavel").innerText = chaves.email;
+            }
         }
         if (chaves.telefone) {
-            document.getElementById("telefoneResponsavel").innerText = chaves.telefone;
+            let telefoneResponsavel = document.getElementById("telefoneResponsavel")
+            if (!telefoneResponsavel == "") {
+                document.getElementById("telefoneResponsavel").innerText = chaves.telefone;
+            }
         }
         if (chaves.uid) {
             let uid = document.getElementById("uid")
             if (!uid == "") {
                 uid.innerText = chaves.uid;
+            }
+        }
+        if (chaves.numeroParticipante) {
+            let uid = document.getElementById("participantes")
+            if (!uid == "") {
+                uid.innerText = chaves.participantes;
             }
         }
     });
