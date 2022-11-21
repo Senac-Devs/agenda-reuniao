@@ -9,3 +9,26 @@
   8| Opções de data e horário e colocar prazo de recebimento 
   9| Envia o link para as pessoas da Reunião
   10| Receba quantidade pessoas que respondeu 
+
+Referencias de apoio:
+
+- https://tutorialehtml.com/pt/home/
+html, css.
+
+- https://pt.stackoverflow.com/
+html, css, javascript, firebase.
+
+- https://developer.mozilla.org/pt-BR/
+html, css, javascript, firebase.
+
+- http://www.clem.ufba.br/tuts/css/c03.htm
+css.
+
+- https://www.youtube.com/watch?v=ePHqclns94A
+firebase - Como hospedar uma página HTML no Firebase.
+
+- https://firebase.google.com/docs
+firebase, firestore.
+
+- https://www.chartjs.org/
+charts.d

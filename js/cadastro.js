@@ -1,4 +1,5 @@
 var calendario = []
+let data = []
 
 function salvarDados() {
     let dataInicial = document.getElementById('dataInicial').value
@@ -20,21 +21,24 @@ function salvarDados() {
     } else if (telefone == '') {
         alert('Por favor, informar o telefone do responsável!')
     } else {
-        for (let i = 0; i <= intervalo; i++) {
+        for (let i = 0; i < intervalo; i++) {
             let d = new Date(dataInicial)
-            d.setHours(d.getHours() + 3)
+            d.setHours(d.getHours() + 4)
             d.setDate(d.getDate() + i)
             calendario.push(d)
+            data.push('intervalo - '+i),
+            data.push(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+            
         }
     }
 }
 const form = document.querySelector('#formularioCadastro');
 form.addEventListener('submit', (event) => {
+ 
     event.preventDefault();
     let chaveEvento = document.getElementById('chave').textContent;
     salvarDados();
     let novaAgenda = {
-        calendario: calendario,
         chave: chaveEvento,
         dataInicial: document.getElementById('dataInicial').value,
         dataFinal: document.getElementById('dataFinal').value,
@@ -45,13 +49,23 @@ form.addEventListener('submit', (event) => {
         nome: document.getElementById('nome').value,
         email: document.getElementById('email').value,
         telefone: document.getElementById('telefone').value,
-        agendaover: false,
+        calendario:calendario,
     }
+    let novaAgendaData = {
+        chave: chaveEvento,
+        dataInicial: document.getElementById('dataInicial').value,
+        dataFinal: document.getElementById('dataFinal').value,
+        intervalo: document.getElementById('intervalo').textContent,
+        data:data,
+        numeroParticipantes: 0
+        }
+    agendaData.add(novaAgendaData);
     agenda.add(novaAgenda)
         .then((docRef) => {
             form.reset()
             geraStringAleatoria(tamanho)
-            alert(`Cadastro da chave ${chaveEvento} realizado!`);
+            alert(`Prezado(a), cadastro da chave ${chaveEvento} realizado!`);
+            window.location.href = "./participar.html?chave=" + chaveEvento;
         })
         .catch((error) => {
             alert(`Cadastro da chave ${chaveEvento} nao realizado!`);

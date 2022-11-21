@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="pt-Br">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pré-Agendamento!!</title>
+    <title>Agenda-Reunião</title>
     <link rel="stylesheet" href="../css/index.css" />
     <link rel="stylesheet" href="../css/registrar.css" />
 </head>
@@ -14,13 +14,15 @@
     <header>
         <div class="paginas">
             <div>
-                <h1>Pré-Agendamento!!</h1>
+                <h1>Agendamento</h1>
             </div>
             <nav>
                 <ul class="list-items">
                     <li><a href="../index.html">Home</a></li>
-                    <li><a href="./preagenda.html">Registrar</a></li>
-                    <li><a href="./evento.html">Buscar</a></li>
+                    <li><a href="./preagenda.html">Agendamento</a></li>
+                    <li><a href="./reunioes.html">Reuniões</a></li>
+                    <li><a href="./participar.html">Participar</a></li>
+                    <li><a href="./acompanhar.html">Acompanhar</a></li>
                 </ul>
             </nav>
         </div>
@@ -35,7 +37,7 @@
             <br>
             <br>
             <form id="formularioCadastro">
-                <fieldset class="box">
+                <div class="box">
                     <div class="chave">
                         <label for="chave">Chave..:</label>
                         <label name="chave" id="chave"></label>
@@ -64,19 +66,19 @@
                                 onclick="inserirData()">
                         </div>
                     </div>
-                </fieldset>
+                </div>
                 <br>
-                <fieldset class="box">
+                <div class="box">
                     <div class="encontro">
                         <br>
-                        <label><b>Detalhes do Encontro:</b></label>
+                        <label><b>Detalhes da reunião:</b></label>
                         <br>
                         <textarea id="detalhesEvento" rows="3" cols="34"
-                            placeholder="Passe o máximo de informações sobre o encontro..." required></textarea>
+                            placeholder="Passe o máximo de informações." required></textarea>
                         <br>
                         <label><b>Local:</b></label>
                         <br>
-                        <textarea id="local" rows="2" cols="34" placeholder="Possível local do encontro"
+                        <textarea id="local" rows="2" cols="34" placeholder="Possível local do encontro."
                             required></textarea>
                         <br>
                         <div>
@@ -96,27 +98,26 @@
                             </select>
                         </div>
                     </div>
-                </fieldset>
+                </div>
                 <br>
-                <fieldset class="box">
+                <div class="box">
                     <div class="organizador">
                         <label><b>Dados do Organizador</b></label>
                         <br>
                         <div>
-                            <input type="text" id="nome" name="nome" placeholder="Nome Completo" required>
+                            <input type="text" id="nome" name="nome" placeholder="Nome completo." required>
                         </div>
                         <br>
                         <div>
-                            <input type="email" id="email" name="email" placeholder="Seu e-mail" required>
+                            <input type="email" id="email" name="email" placeholder="Email." required>
                         </div>
                         <br>
                         <div>
-                            <input type="number" id="telefone" name="telefone" placeholder="Seu telefone com DDD"
-                                required>
+                            <input type="number" id="telefone" name="telefone" placeholder="Telefone/celular." required>
                         </div>
                         <br>
                     </div>
-                </fieldset>
+                </div>
                 <br>
                 <div class="alinharButton">
                     <button class="registrar">Registrar</button>
@@ -130,15 +131,15 @@
     <script src="../js/index.js"></script>
     <script src="../js/chave.js"></script>
     <script src="../js/cadastro.js" type="module"></script>
-    <footer>
-        <div class="container footer">
+    <div class="rodape">
+        <footer>
             <p>
                 <b>
                     Todos os direitos reservados &copy;2022 Senac School Project - github.com/Senac-Devs
                 </b>
             </p>
-        </div>
-    </footer>
+        </footer>
+    </div>
 </body>
 
 </html>

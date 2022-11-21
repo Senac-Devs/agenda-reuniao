@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agenda-Reunião</title>
+  <link rel="stylesheet" href="../css/index.css" />
+  <link rel="stylesheet" href="../css/buscar.css" />
+</head>
+<header>
+  <div class="paginas">
+    <div>
+      <h1>Participar</h1>
+    </div>
+    <nav>
+      <ul class="list-items">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="./preagenda.html">Agendamento</a></li>
+        <li><a href="./reunioes.html">Reuniões</a></li>
+        <li><a href="./participar.html">Participar</a></li>
+        <li><a href="./acompanhar.html">Acompanhar</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<main>
+  <label name="chave" id="hojeDia"></label>
+  <figure>
+    <img src="../img/buscar.png" alt="Pre-agendamento" />
+  </figure>
+  <div class="container">
+    <br>
+    <form class="busca">
+      <input type="text" id="acesso" placeholder="Acesso através da chave..." />
+      <input type="button" class="registrar" id="acessoBotaoChave" name='botao' value="Participar" onclick="buscar()">
+    </form>
+    <br>
+    <h2>Sobre o encontro.</h2>
+    <br>
+    <br>
+    <form class="info" id="formularioCadastroDataHora">
+      <table class="box" id="chaves">
+        <tr>
+          <td>Chave de registro.</td>
+          <td id="chave"></td>
+        </tr>
+        <tr>
+          <td>Data inicial sugestiva.</td>
+          <td id="dataInicial"></td>
+        </tr>
+        <tr>
+          <td>Data final sugestiva.</td>
+          <td id="dataFinal"></td>
+        </tr>
+        <tr>
+          <td>Número de dias.</td>
+          <td id="intervalo"></td>
+        </tr>
+        <tr>
+          <td>Detalhes do Encontro.</td>
+          <td id="detalhesEvento"></td>
+        </tr>
+        <tr>
+          <td>Local.</td>
+          <td id="local"></td>
+        </tr>
+        <tr>
+          <td>Duração em horas.</td>
+          <td id="tempoEstimado"></td>
+        </tr>
+        <tr>
+          <td>Responsável.</td>
+          <td id="nomeResponsavel"></td>
+        </tr>
+        <tr>
+          <td>Email.</td>
+          <td id="emailResponsavel"></td>
+        </tr>
+        <tr>
+          <td>Contato.</td>
+          <td id="telefoneResponsavel"></td>
+        </tr>
+        <tr>
+          <td>uid</td>
+          <td id="uid"></td>
+        </tr>
+      </table>
+      <br>
+      <p>Por favor, em cada dia informe qual e o melhor horário para sua participação.</p>
+
+      <table class="semana" id="semana"></table>
+      <br>
+      <div class="organizador, box">
+        <label><b>Dados do participante:</b></label>
+        <div>
+          <input type="text" id="nome" name="nome" placeholder="Informe o seu nome..." required>
+          <input type="number" id="telefone" name="telefone" placeholder="Numero celular.." required>
+          <input type="email" id="email" name="email" placeholder="Seu e-mail">
+        </div>
+      </div>
+      <br>
+      <div class="alinharButton">
+        <button class="registrar">Registrar</button>
+      </div>
+    </form>
+  </div>
+</main>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+<script src="../js/auth.js"></script>
+<script src="../js/buscar.js"></script>
+<script src="../js/participar.js"></script>
+<script src="../js/index.js"></script>
+<div class="rodape">
+  <footer>
+    <p>
+      <b>
+        Todos os direitos reservados &copy;2022 Senac School Project - github.com/Senac-Devs
+      </b>
+    </p>
+  </footer>
+</div>
+</body>
+
+</html>

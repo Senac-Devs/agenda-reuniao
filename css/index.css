@@ -68,12 +68,11 @@ nav ul {
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    flex-wrap: wrap;
 }
 
 nav ul li {
     width: 25%;
-    margin: 10px auto;
+    margin: 5px auto;
 }
 
 nav ul li a {
@@ -97,6 +96,8 @@ main {
     margin-right: auto;
     width: 70%;
     padding: 5%;
+    height: auto;
+    min-height: 100%;
 }
 
 main figure {
@@ -138,23 +139,32 @@ p {
 
 button:hover {
     background-color: #CCC;
-    color: #575c61;
+    color: #1b1c1d;
 }
+
+.registrar:hover {
+    background-color: #CCC;
+    color: #1b1c1d;
+}
+
+.rodape {
+    margin: 10% 0 0 0;
+}
+
 
 footer {
     display: flex;
     justify-content: center;
-    align-items: center;
     background-color: hsl(0, 64%, 57%);
     opacity: 0.7;
-    position: fixed;
+    color: white;
+    position: relative;
     bottom: 0;
-    width: auto;
-    height: 20px;
-    font-size: 9px;
-    font-style: italic;
+    width: 100%;
+    margin: auto auto;
+    padding: 2px;
 }
 
-footer .footer {
-    color: #fff;
+footer p b {
+    font-size: 12px;
 }
