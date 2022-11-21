@@ -1,5 +1,6 @@
 var calendario = []
 let data = []
+
 function salvarDados() {
     let dataInicial = document.getElementById('dataInicial').value
     let intervalo = document.getElementById('intervalo').textContent

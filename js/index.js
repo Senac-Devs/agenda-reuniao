@@ -30,8 +30,8 @@ function inserirData() {
         let diferencaDias = Math.ceil(diferencaHora / (1000 * 3600 * 24))
         diferencaDias = diferencaDias + 1
 
-        if (diferencaDias > 7) {
-            alert('O numero de dias e superior a 7. Por favor, corrigir a data final!')
+        if (diferencaDias > 1) {
+            alert('O numero de dias e superior a 1. Por favor, corrigir a data final!')
         } else {
             document.getElementById('intervalo').innerHTML = diferencaDias
 

@@ -47,6 +47,7 @@ function adicionarNaTelaEmail(chaves) {
       tr.appendChild(td);
     }
     if (chaves.dataInicial) {
+
       let tr = document.createElement('tr');
       ordenarChave.appendChild(tr);
       let dataInicial = document.createElement('td');
@@ -128,7 +129,7 @@ function adicionarNaTelaEmail(chaves) {
     tr.appendChild(espaco);
   });
 }
-
+  
 function participarEvento(chaves) { 
     const form = document.querySelector('#participarEvento');
     form.addEventListener('submit', (event) => {

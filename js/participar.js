@@ -1,6 +1,6 @@
 const nomeDiaSemana = ["domingo", "segunda", "terça", "quarta", "quinta", "sexta", "sábado"]
-
 const ordenarSemana = document.getElementById('semana');
+let horarioData =[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 
 function adicionarSemana(chaves) {
     document.querySelectorAll("[id='acessoBotaoEmailChave']").disabled = true;
@@ -11,7 +11,8 @@ function adicionarSemana(chaves) {
             const diaInicial = new Date(semana.dataInicial)
             let diaAtual = diaInicial
             for (let i = 0; i < d; i++) {
-                diaAtual = new Date(diaAtual.setDate(diaInicial.getDate() + i))
+                diaAtual = new Date(diaAtual.setDate(diaInicial.getUTCDate()))
+
                 const diaSemana = diaAtual.getDay()
                 const diaMes = diaAtual.getDate()
 
@@ -55,6 +56,14 @@ function adicionarSemana(chaves) {
     }
 }
 
+
+function validaHoraVazia(hora) {
+    if (hora == "") {
+        alert("Por Favor, informe a hora")
+    }
+}
+
+
 const form = document.querySelector('#formularioCadastroDataHora');
 form.addEventListener('submit', (event) => {
     event.preventDefault();
@@ -65,48 +74,60 @@ form.addEventListener('submit', (event) => {
         let horaIntervalo = "horaDia" + i
         let dia = document.getElementById(diaIntervalo).textContent;
         let hora = document.getElementById(horaIntervalo).value;
-       // console.log(dia)
-       // console.log(hora)
-      // console.log(np)
+        validaHoraVazia(hora)
 
         if (hora == "0700") {
-            updateData.splice(0, 1, updateData[0] + 1)
-        } else if (hora == "0800") {
             updateData.splice(1, 1, updateData[1] + 1)
-        } else if (hora == "0900") {
+            horarioData.splice(1, 1, horarioData[1] + 1) 
+        } else if (hora == "0800") {
             updateData.splice(2, 1, updateData[2] + 1)
-        } else if (hora == "1000") {
+            horarioData.splice(2, 1, horarioData[2] + 1)
+        } else if (hora == "0900") {
             updateData.splice(3, 1, updateData[3] + 1)
-        } else if (hora == "1100") {
+            horarioData.splice(3, 1, horarioData[3] + 1) 
+        } else if (hora == "1000") {
             updateData.splice(4, 1, updateData[4] + 1)
-        } else if (hora == "1200") {
+            horarioData.splice(4, 1, horarioData[4] + 1)
+        } else if (hora == "1100") {
             updateData.splice(5, 1, updateData[5] + 1)
-        } else if (hora == "1300") {
+            horarioData.splice(5, 1,horarioData[5] + 1)
+        } else if (hora == "1200") {
             updateData.splice(6, 1, updateData[6] + 1)
-        } else if (hora == "1400") {
+            horarioData.splice(6, 1, horarioData[6] + 1)
+        } else if (hora == "1300") {
             updateData.splice(7, 1, updateData[7] + 1)
-        } else if (hora == "1500") {
+            horarioData.splice(7, 1, horarioData[7] + 1)
+        } else if (hora == "1400") {
             updateData.splice(8, 1, updateData[8] + 1)
-        } else if (hora == "1600") {
+            horarioData.splice(8, 1, horarioData[8] + 1)
+        } else if (hora == "1500") {
             updateData.splice(9, 1, updateData[9] + 1)
-        } else if (hora == "1700") {
+            horarioData.splice(9, 1, horarioData[9] + 1)
+        } else if (hora == "1600") {
             updateData.splice(10, 1, updateData[10] + 1)
-        } else if (hora == "1800") {
+            horarioData.splice(10, 1, horarioData[10] + 1)
+        } else if (hora == "1700") {
             updateData.splice(11, 1, updateData[11] + 1)
-        } else if (hora == "1900") {
+            horarioData.splice(11, 1, horarioData[11] + 1)
+        } else if (hora == "1800") {
             updateData.splice(12, 1, updateData[12] + 1)
-        } else if (hora == "2000") {
+            horarioData.splice(12, 1, horarioData[12] + 1)
+        } else if (hora == "1900") {
             updateData.splice(13, 1, updateData[13] + 1)
-        } else if (hora == "2100") {
+            horarioData.splice(13, 1, horarioData[13] + 1)
+        } else if (hora == "2000") {
             updateData.splice(14, 1, updateData[14] + 1)
-        } else if (hora == "2200") {
+            horarioData.splice(14, 1, horarioData[14] + 1)
+        } else if (hora == "2100") {
             updateData.splice(15, 1, updateData[15] + 1)
-        } else if (hora == "2300") {
+            horarioData.splice(15, 1, horarioData[15] + 1)
+        } else if (hora == "2200") {
             updateData.splice(16, 1, updateData[16] + 1)
+            horarioData.splice(16, 1, horarioData[16] + 1)
         } else {
-            alert('Informe um horário');
+            updateData.splice(17, 1, updateData[17] + 1)
+            horarioData.splice(17, 1, horarioData[17] + 1)
         }
- 
     }
     updateDados = {
         data: updateData,
@@ -118,9 +139,11 @@ form.addEventListener('submit', (event) => {
         nome: document.getElementById('nome').value,
         email: document.getElementById('email').value,
         telefone: document.getElementById('telefone').value,
+        data: horarioData,
+        numeroParticipantes: np
     }
     agendaParticipante.add(novoParticipante);
-   participanteAtualizar()
+    participanteAtualizar()
 });
 
 
@@ -131,8 +154,9 @@ function participanteAtualizar(form) {
         .doc(agendaDataUid)
         .update(updateDados)
         .then(doc => {
-           // alert('Prezado(a) ' + nomeAgradece + ' suas informações estão salvas, agora e so aguardar!!')
-           // window.location.href = "../index.html"
+            alert('Prezado(a) ' + nomeAgradece + ' suas informações estão salvas, agora e so aguardar!!')
+       //     window.location.href = "../index.html"
+            window.location.href = "./acompanhar.html?chave=" + chaveAcesso
         });
 
 }

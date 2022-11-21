@@ -10,40 +10,25 @@
   9| Envia o link para as pessoas da Reunião
   10| Receba quantidade pessoas que respondeu 
 
+Referencias de apoio:
 
-
-a) HTML 
 - https://tutorialehtml.com/pt/home/
-- https://pt.stackoverflow.com/
-- https://developer.mozilla.org/pt-BR/
+html, css.
 
-b) CSS 
+- https://pt.stackoverflow.com/
+html, css, javascript, firebase.
+
+- https://developer.mozilla.org/pt-BR/
+html, css, javascript, firebase.
+
 - http://www.clem.ufba.br/tuts/css/c03.htm
-- https://dev.to/
-- https://pt.stackoverflow.com/
-- https://developer.mozilla.org/pt-BR/
+css.
 
-c) Javascript:
-- https://pt.stackoverflow.com/
-- https://developer.mozilla.org/pt-BR/
-
-c) Firebase , Como hospedar uma página HTML no Firebase (Tutorial) 
 - https://www.youtube.com/watch?v=ePHqclns94A
-- https://firebase.google.com/docs/firestore/
-- https://pt.stackoverflow.com/
-- https://developer.mozilla.org/pt-BR/
+firebase - Como hospedar uma página HTML no Firebase.
 
+- https://firebase.google.com/docs
+firebase, firestore.
 
-d) Firestone 
-- https://www.youtube.com/channel/UCtTfS4ffNNNhGoXzAdklwtQ
-- https://firebase.google.com/docs/firestore/
-- https://pt.stackoverflow.com/
-- https://developer.mozilla.org/pt-BR/
-
-
-Cursos extras.
-https://web.dio.me/home
-
-Exercicios 
-
-- https://www.w3schools.com/exercises/index.php
+- https://www.chartjs.org/
+charts.d
