@@ -1,6 +1,12 @@
 var calendario = []
 let data = []
 
+function dataFuturo() {
+   let a=new Date("2022/11/23")
+    let b= new Date()
+console.log(a.getTime() >= b.getTime())
+}
+
 function salvarDados() {
     let dataInicial = document.getElementById('dataInicial').value
     let intervalo = document.getElementById('intervalo').textContent
@@ -22,8 +28,8 @@ function salvarDados() {
         alert('Por favor, informar o telefone do responsável!')
     } else {
         for (let i = 0; i < intervalo; i++) {
-            let d = new Date(dataInicial)
-            d.setHours(d.getHours() + 4)
+           let d = new Date(dataInicial)
+    d.setHours(d.getHours() + 4)
             d.setDate(d.getDate() + i)
             calendario.push(d)
             data.push('intervalo - '+i),
@@ -50,10 +56,10 @@ form.addEventListener('submit', (event) => {
         email: document.getElementById('email').value,
         telefone: document.getElementById('telefone').value,
         calendario:calendario,
-    }
+     }
     let novaAgendaData = {
         chave: chaveEvento,
-        dataInicial: document.getElementById('dataInicial').value,
+     dataInicial: document.getElementById('dataInicial').value,
         dataFinal: document.getElementById('dataFinal').value,
         intervalo: document.getElementById('intervalo').textContent,
         data:data,
@@ -71,6 +77,5 @@ form.addEventListener('submit', (event) => {
             alert(`Cadastro da chave ${chaveEvento} nao realizado!`);
         });
 });
-
 
 

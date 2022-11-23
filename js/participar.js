@@ -57,6 +57,7 @@ function adicionarSemana(chaves) {
 }
 
 
+
 function validaHoraVazia(hora) {
     if (hora == "") {
         alert("Por Favor, informe a hora")
