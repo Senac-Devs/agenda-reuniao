@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <script src="https://kit.fontawesome.com/96be6e583e.js" crossorigin="anonymous"></script>
+    <title>Pre-Reunião</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="topbar">
+            <div class="logo">
+                <h1>Dashboard</h1>
+            </div>
+            <div class="search">
+                <input type="text" id="acesso" placeholder="Informe a chave.">
+                <label for="search"> <i class="fas fa-search" id="acessoBotaoChave" onclick="buscar()"></i></label>
+            </div>
+
+            <div class="user">
+                <label class="dayUp" name="chave" id="hojeDia"></label>
+            </div>
+        </div>
+        <div class="sidebar">
+            <ul>
+                <li>
+                    <a href="../index.html">
+                        <i class="fa-solid fa-house"></i>
+                        <div>Home</div>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="./preagenda.html">
+                        <i class="fa-solid fa-book-open-reader"></i>
+                        <div>Agendamento</div>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="./reunioes.html">
+                        <i class="fas fa-chart-bar"></i>
+                        <div>Reuniões</div>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="./participar.html">
+                        <i class="fa-solid fa-check"></i>
+                        <div>Participar</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="./acompanhar.html">
+                        <i class="fa-solid fa-eye"></i>
+                        <div>Acompanhar</div>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <i class="fas fa-th-large"></i>
+                        <div>Dashboard</div>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <i class="fas fa-question"></i>
+                        <div>Ajuda</div>
+                    </a>
+                </li>
+
+
+            </ul>
+        </div>
+        <div class="main">
+            <div class="cards">
+
+                <div class="card" style="background:linear-gradient(45deg,#ff5378, #ff869a);">
+                    <div class="card-content">
+                        <div class="number" id="chaves"></div>
+                        <div class="card-name">Chave</div>
+                    </div>
+                    <div class="icon-box">
+                        <i class="fa-solid fa-key"></i>
+                    </div>
+                </div>
+
+                <div class="card" style="background:linear-gradient(45deg,#4099ff, #73b4ff);">
+                    <div class="card-content">
+                        <div class="number" id="dataInicial"></div>
+                        <div class="card-name">Data Inicial</div>
+                    </div>
+                    <div class="icon-box">
+                        <i class="fa-solid fa-calendar-days"></i>
+                    </div>
+                </div>
+
+                <div class="card" style="background:linear-gradient(45deg,#26a330, #14ca5a);">
+                    <div class="card-content">
+                        <div class="number" id="dataFinal"></div>
+                        <div class="card-name">Data Final</div>
+                    </div>
+                    <div class="icon-box">
+                        <i class="fa-regular fa-calendar-days"></i>
+                    </div>
+                </div>
+
+                <div class="card" style="background:linear-gradient(45deg,#e2a968, #e2a560);">
+                    <div class="card-content">
+                        <div class="number" id="detalhesEvento"></div>
+                        <div class="card-name">Detalhes</div>
+                    </div>
+                    <div class="icon-box">
+                        <i class="fa-solid fa-info"></i>
+                    </div>
+                </div>
+
+                <div class="card" style="background:linear-gradient(45deg,#5533d1, #5d64bd);">
+                    <div class="card-content">
+                        <div class="number" id="numeroParticipantes"></div>
+                        <div class="card-name">Participantes.</div>
+                    </div>
+                    <div class="icon-box">
+                        <i class="fa-solid fa-users-gear"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="charts">
+                <div class="chart" id="barChart">
+                    <h2>Coluna</h2>
+                    <canvas id="bar"></canvas>
+                </div>
+                <div class="chart" id="doughnutChart">
+                    <h2>Rosquinha</h2>
+                    <canvas id="doughnut"></canvas>
+                </div>
+                <div class="chart" id="lineChart">
+                    <h2>Linhas</h2>
+                    <canvas id="line"></canvas>
+                </div>
+
+                <div class="chart" id="pieChart">
+                    <h2>Pizza</h2>
+                    <canvas id="pie"></canvas>
+                </div>
+            </div>
+
+            <div class="participant">
+                <table class="listPart" id="listParticipant"></table>
+            </div>
+
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.5.1/dist/chart.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+    <script src="../js/auth.js"></script>
+    <script src="../js/buscar.js"></script>
+    <script src="../js/index.js"></script>
+    <script src="../js/grafico.js"></script>
+    <script src="../js/dashboard.js"></script>
+</body>
+
+</html>

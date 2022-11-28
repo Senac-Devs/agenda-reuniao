@@ -6,9 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Agenda-Reunião</title>
+  <script src="https://kit.fontawesome.com/96be6e583e.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.5.1/dist/chart.min.js"></script>
   <link rel="stylesheet" href="../css/index.css" />
   <link rel="stylesheet" href="../css/buscar.css" />
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="../css/acompanhar.css" />
 </head>
 
 <body>
@@ -24,6 +26,7 @@
           <li><a href="./reunioes.html">Reuniões</a></li>
           <li><a href="./participar.html">Participar</a></li>
           <li><a href="./acompanhar.html">Acompanhar</a></li>
+          <li><a href="./dashboard.html">Dashboard</a></li>
         </ul>
       </nav>
     </div>
@@ -42,45 +45,67 @@
       <br>
       <h2>Sobre o encontro.</h2>
       <br>
-      <br>
-      <form class="info" id="formularioCadastroDataHora">
-        <table class="box" id="chaves">
-          <tr>
-            <td>Chave de registro.</td>
-            <td id="chave"></td>
-          </tr>
-          <tr>
-            <td>Data inicial sugestiva.</td>
-            <td id="dataInicial"></td>
-          </tr>
-          <tr>
-            <td>Data final sugestiva.</td>
-            <td id="dataFinal"></td>
-          </tr>
-          <tr>
-            <td>Detalhes do Encontro.</td>
-            <td id="detalhesEvento"></td>
-          </tr>
-          <tr>
-            <td>Responsável.</td>
-            <td id="nomeResponsavel"></td>
-          </tr>
-          <tr>
-            <td>Participantes</td>
-            <td id="numeroParticipantes"></td>
-          </tr>
-        </table>
+      <div class="box-info">
+
+        <div style="background:linear-gradient(45deg,#ff5378, #ff869a);" class="box-info-single">
+          <div class="info-text">
+            <label>Chave</label>
+            <label id="chave"></label>
+          </div>
+          <i class="fa-solid fa-key"></i>
+        </div>
+
+        <div style="background:linear-gradient(45deg,#4099ff, #73b4ff);" class="box-info-single">
+          <div class="info-text">
+            <label>Data inicial</label>
+            <label id="dataInicial"></label>
+          </div>
+          <i class="fa-solid fa-calendar-days"></i>
+        </div>
+
+        <div style="background:linear-gradient(45deg,#58c561, #04bd4b);" class="box-info-single">
+          <div class="info-text">
+            <label>Data final</label>
+            <label id="dataFinal"></label>
+          </div>
+          <i class="fa-regular fa-calendar-days"></i>
+        </div>
+
+        <div style="background:linear-gradient(45deg,#e2a968, #e2a560);" class="box-info-single">
+          <div class="info-text">
+            <label>Detalhes</label>
+            <label id="detalhesEvento"></label>
+          </div>
+          <i class="fa-solid fa-info"></i>
+        </div>
+
+        <div style="background:linear-gradient(45deg,#7253ff, #a961da);" class="box-info-single">
+          <div class="info-text">
+            <label>Responsável.</label>
+            <label id="nomeResponsavel"></label>
+          </div>
+          <i class="fa-solid fa-user-plus"></i>
+        </div>
+
+        <div style="background:linear-gradient(45deg,#73bef0, #0713b8);" class="box-info-single">
+          <div class="info-text">
+            <label>Participantes</label>
+            <label id="numeroParticipantes"></label>
+          </div>
+          <i class="fa-solid fa-users-gear"></i>
+        </div>
+      </div>
+      <table id="chaves"></table>
     </div>
     <div>
-      <canvas id="acompanhar"></canvas>
-      <canvas id="acompanharOutro"></canvas>
+      <canvas id="bar"></canvas>
+      <canvas id="line"></canvas>
     </div>
   </main>
   <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
   <script src="../js/auth.js"></script>
-  <script src="../js/buscar.js"></script>
-  <script src="../js/acompanhar.js"></script>
+  <script src="../js/buscarAcompanhar.js"></script>
   <script src="../js/index.js"></script>
   <script src="../js/grafico.js"></script>
   <div class="rodape">

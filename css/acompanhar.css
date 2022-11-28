@@ -1,0 +1,17 @@
+.box-info {
+    width: 100%;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.box-info-single {
+    display: flex;
+    justify-content: space-between;
+    border-radius: 10px;
+    color: white;
+    width: 100%;
+    margin: 0 4px;
+    padding: 10px;
+}
+
