@@ -49,8 +49,7 @@ function buscarEvento() {
 };
 
 // faz um select na agendaData para pegar UID e fazer atualizacao
-function agendaDataEvento(chaveAcesso) {
-    
+function agendaDataEvento() {
     firebase.firestore()
         .collection('agendaData')
         .where('chave', '==', chaveAcesso)
@@ -60,7 +59,7 @@ function agendaDataEvento(chaveAcesso) {
                 ...doc.data(),
                 uid: doc.id
             }));
-            if (chaveAcesso == "") {
+            if (chaves == "") {
                 alert(`Chave - ${chaveAcesso} não encontrado!`);
             } else {
                 agendaDataUidUpdate(dataChaves)
@@ -93,8 +92,7 @@ function agendaDataUidUpdate(dataChaves) {
             }
         }
     })
-  ajusteGrafico()
-  agendaSelectParticipante()
+    ajusteGrafico()
 };
 function formatarDataInicial(dataInicial) {
     return new Date(dataInicial).toLocaleDateString('pt-BR', { timeZone: 'UTC' });
@@ -106,11 +104,10 @@ function adicionarNaTela(chaves) {
     const ordenarChave = document.getElementById('chaves');
     chaves.forEach(chaves => {
         if (chaves.chave) {
-            document.getElementById("chaves").innerText = chaves.chave;
+            document.getElementById("chave").innerText = chaves.chave;
         }
         if (chaves.dataInicial) {
             document.getElementById("dataInicial").innerText = formatarDataInicial(chaves.dataInicial);
-            
         }
         if (chaves.dataFinal) {
             document.getElementById("dataFinal").innerText = formatarDataFinal(chaves.dataFinal)
@@ -137,11 +134,7 @@ function adicionarNaTela(chaves) {
             }
         }
         if (chaves.nome) {
-            let nome = document.getElementById("nomeResponsavel")
-             if(!nome==""){
-                document.getElementById("nomeResponsavel").innerText = chaves.nome;
-
-            }
+            document.getElementById("nomeResponsavel").innerText = chaves.nome;
         }
         if (chaves.email) {
             let emailResponsavel = document.getElementById("emailResponsavel")
@@ -162,9 +155,9 @@ function adicionarNaTela(chaves) {
             }
         }
         if (chaves.numeroParticipante) {
-            let numeroPar = document.getElementById("participantes")
-            if (!numeroPar == "") {
-                numeroPar.innerText = chaves.participantes;
+            let uid = document.getElementById("participantes")
+            if (!uid == "") {
+                uid.innerText = chaves.participantes;
             }
         }
     });

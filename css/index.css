@@ -3,7 +3,7 @@
     padding: 0;
     box-sizing: border-box;
     list-style: none;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
     text-decoration: none;
 }
 
@@ -18,7 +18,7 @@ html {
 h1 {
     font-size: 1, 3em;
     line-height: 1em;
-    padding-left: 80px;
+    padding-left: 10px;
 }
 
 
@@ -34,7 +34,8 @@ p {
 
 .paginas {
     width: 100%;
-    padding: 2px;
+    padding: 0 20px;
+    height: 60px;
     display: flex;
     justify-content: center;
     margin: auto;
