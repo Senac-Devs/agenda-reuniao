@@ -5,49 +5,92 @@ const data = {
     labels: labels,
     datasets: [{
         label: 'Hora X Participantes',
-        backgroundColor: '#D5B27B',
+        backgroundColor: [
+            'rgba(222,184,135,1)',
+            'rgba(0,255,255,1)',
+            'rgba(95,158,160,1)',
+            'rgba(127,255,0,1)',
+            'rgba(210,105,30,1)',
+            'rgba(100,149,237,1)',
+            'rgba(0,0,139,1)',
+            'rgba(184,134,11,1)',
+            'rgba(169,169,169,1)',
+            'rgba(0,100,0,1)',
+            'rgba(255,140,0,1)',
+            'rgba(233,150,122,1)'   
+        ],
+        borderColor: [
+            'rgba(222,184,135,1)',
+            'rgba(0,255,255,1)',
+            'rgba(95,158,160,1)',
+            'rgba(127,255,0,1)',
+            'rgba(210,105,30,1)',
+            'rgba(100,149,237,1)',
+            'rgba(0,0,139,1)',
+            'rgba(184,134,11,1)',
+            'rgba(169,169,169,1)',
+            'rgba(0,100,0,1)',
+            'rgba(255,140,0,1)',
+            'rgba(233,150,122,1)'
+        ],
         data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]//17 posições
-    }
-    ]
+    }]
 };
 
-const config = {
+
+const configBar = {
     type: 'bar',
     data: data,
     options: {
+        responsive: true,
         title: {
             display: true,
-            fontSize: 20,
+            fontSize: 40,
             text: "Relatório de dias X hora X participantes"
         },
         labels: {
-            fontStyle: "bold"
+            fontStyle: "bold",
         }
     }
 };
 
-const configOutro = {
+const configLine = {
     type: 'line',
     data: data,
     options: {
-        title: {
-            display: true,
-            fontSize: 20,
-            text: "Relatório de dias X hora X participantes"
+        animations: {
+            tension: {
+                duration: 3000,
+                easing: 'linear',
+                from: 1,
+                to: 0,
+                loop: true
+            }
         },
-        labels: {
-            fontStyle: "bold"
-        }
     }
 };
 
-// 1- #11A9FC
-// 2- #D519B8
-// 3- #48D2AD
-// 4- #D5B27B
-// 5- #ADE04D
-// 6- #2A105B
-// 7- #6526DA
+const configDoughnut = {
+    type: 'doughnut',
+    data: data,
+    options: {
+        parsing: {
+            key: 'nested.value'
+        }
+    }
+}
+
+const configPie = {
+    type: 'pie',
+    data: data,
+    options: {
+        parsing: {
+            key: 'nested.value'
+        }
+    }
+}
+
+
 let d = 0
 
 function ajusteGrafico() {
@@ -66,13 +109,26 @@ function ajusteGrafico() {
         p++
     }
     const myChart = new Chart(
-        document.getElementById('acompanhar'),
-        config
+        document.getElementById('bar'),
+        configBar
     );
-    const myChartOutro = new Chart(
-        document.getElementById('acompanharOutro'),
-        configOutro
+
+    const myChartDoughnut = new Chart(
+        document.getElementById('doughnut'),
+        configDoughnut
     );
+
+    const myChartLine = new Chart(
+        document.getElementById('line'),
+        configLine
+    );
+
+    const myChartPie = new Chart(
+        document.getElementById('pie'),
+        configPie
+    );
+
 }
+
 
 

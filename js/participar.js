@@ -65,6 +65,7 @@ function validaHoraVazia(hora) {
 
 
 const form = document.querySelector('#formularioCadastroDataHora');
+let dh = ""
 form.addEventListener('submit', (event) => {
     event.preventDefault();
     var intervalo = document.getElementById("intervalo").textContent
@@ -77,54 +78,71 @@ form.addEventListener('submit', (event) => {
         validaHoraVazia(hora)
 
         if (hora == "0700") {
+            dh = hora
             updateData.splice(1, 1, updateData[1] + 1)
             horarioData.splice(1, 1, horarioData[1] + 1) 
         } else if (hora == "0800") {
+            dh = hora
             updateData.splice(2, 1, updateData[2] + 1)
             horarioData.splice(2, 1, horarioData[2] + 1)
         } else if (hora == "0900") {
+            dh = hora
             updateData.splice(3, 1, updateData[3] + 1)
             horarioData.splice(3, 1, horarioData[3] + 1) 
         } else if (hora == "1000") {
+            dh = hora
             updateData.splice(4, 1, updateData[4] + 1)
             horarioData.splice(4, 1, horarioData[4] + 1)
         } else if (hora == "1100") {
+            dh = hora
             updateData.splice(5, 1, updateData[5] + 1)
             horarioData.splice(5, 1,horarioData[5] + 1)
         } else if (hora == "1200") {
+            dh = hora
             updateData.splice(6, 1, updateData[6] + 1)
             horarioData.splice(6, 1, horarioData[6] + 1)
         } else if (hora == "1300") {
+            dh = hora
             updateData.splice(7, 1, updateData[7] + 1)
             horarioData.splice(7, 1, horarioData[7] + 1)
         } else if (hora == "1400") {
+            dh = hora
             updateData.splice(8, 1, updateData[8] + 1)
             horarioData.splice(8, 1, horarioData[8] + 1)
         } else if (hora == "1500") {
+            dh = hora
             updateData.splice(9, 1, updateData[9] + 1)
             horarioData.splice(9, 1, horarioData[9] + 1)
         } else if (hora == "1600") {
+            dh = hora
             updateData.splice(10, 1, updateData[10] + 1)
             horarioData.splice(10, 1, horarioData[10] + 1)
         } else if (hora == "1700") {
+            dh = hora
             updateData.splice(11, 1, updateData[11] + 1)
             horarioData.splice(11, 1, horarioData[11] + 1)
         } else if (hora == "1800") {
+            dh = hora
             updateData.splice(12, 1, updateData[12] + 1)
             horarioData.splice(12, 1, horarioData[12] + 1)
         } else if (hora == "1900") {
+            dh = hora
             updateData.splice(13, 1, updateData[13] + 1)
             horarioData.splice(13, 1, horarioData[13] + 1)
         } else if (hora == "2000") {
+            dh = hora
             updateData.splice(14, 1, updateData[14] + 1)
             horarioData.splice(14, 1, horarioData[14] + 1)
         } else if (hora == "2100") {
+            dh = hora
             updateData.splice(15, 1, updateData[15] + 1)
             horarioData.splice(15, 1, horarioData[15] + 1)
         } else if (hora == "2200") {
+            dh = hora
             updateData.splice(16, 1, updateData[16] + 1)
             horarioData.splice(16, 1, horarioData[16] + 1)
         } else {
+            dh = hora
             updateData.splice(17, 1, updateData[17] + 1)
             horarioData.splice(17, 1, horarioData[17] + 1)
         }
@@ -140,6 +158,7 @@ form.addEventListener('submit', (event) => {
         email: document.getElementById('email').value,
         telefone: document.getElementById('telefone').value,
         data: horarioData,
+        hora: dh,
         numeroParticipantes: np
     }
     agendaParticipante.add(novoParticipante);
@@ -155,7 +174,6 @@ function participanteAtualizar(form) {
         .update(updateDados)
         .then(doc => {
             alert('Prezado(a) ' + nomeAgradece + ' suas informações estão salvas, agora e so aguardar!!')
-       //     window.location.href = "../index.html"
             window.location.href = "./acompanhar.html?chave=" + chaveAcesso
         });
 
